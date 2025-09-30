@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="multimedia/favicon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <style>
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'MADE Soulmaze Brush'; src: url('font/MADE-Soulmaze-Brush.otf') format('truetype'); font-weight: 400; font-style: regular; }
+    * { font-family: 'Moderat', sans-serif; font-weight: 400; font-style: normal; }
+    :root {
+      --green: #83DC5A;
+      --dark-blue: #203855;
+      --blue: #1D54C0;
+      --light-blue: #A0C3EA;
+      --extra-light-blue: #EDF5FF;
+    }
+    .header-bautismo {
+      height: 100vh;
+      background-image: url('multimedia/bautismo-header.jpg');
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+    }
+    .header-bautismo::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      max-width: 900px;
+    }
+    .title-bautismo {
+        font-family: 'Moderat', sans-serif;
+        font-weight: 700;
+        font-size: 45px;
+        line-height: 100%;
+        color: var(--extra-light-blue);
+        margin-bottom: 20px;
+    }
+    .description-bautismo {
+        font-family: 'Moderat', sans-serif;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 120%;
+        color: var(--extra-light-blue);
+        text-align: center;
+    }
+    .verse-text {
+        color: var(--dark-blue);
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 100%;
+    }
+    .indicator-title {
+        color: var(--dark-blue);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 100%;
+    }
+    .indicator-list {
+        color: var(--dark-blue);
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 150%;
+        text-align: left;
+    }
+    .video-cta {
+        color: var(--blue);
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 100%;
+    }
+    .video-container {
+        width: 767px;
+        height: 431px;
+        border-radius: 20px;
+        background-image: url('multimedia/video-bautismo.png'), url('Checker.png');
+        background-size: cover;
+        background-position: center;
+    }
+    /* Estilos responsive para ajustar el video */
+    @media (max-width: 1400px) {
+      .video-container {
+        width: 650px;
+        height: 365px;
+      }
+    }
+    @media (max-width: 768px) {
+      .video-container {
+        width: 90vw;
+        height: 50.625vw; /* 16:9 aspect ratio */
+        max-width: 650px;
+        max-height: 365px;
+      }
+    }
+  </style>
+  <title>Bautismo</title>
+</head>
+<body class="bg-[--extra-light-blue]">
+  <header class="header-bautismo">
+    <div class="header-content">
+      <h1 class="title-bautismo">Bautismo</h1>
+      <p class="description-bautismo">Tomar la decisión de bautizarte en agua, simboliza el morir a tu antigua manera de vivir y resucitar a una nueva vida en Jesús.</p>
+    </div>
+  </header>
+  <main class="flex flex-col items-center">
+    <div class="py-20 max-w-4xl px-4">
+        <p class="verse-text text-center">
+            Si alguno está en Cristo, es una nueva creación.<br>¡Lo viejo ha pasado, ha llegado ya lo nuevo!
+            <br><br>
+            2 Corintios 5:17 NVI
+        </p>
+    </div>
+    <div class="w-full bg-[--light-blue] py-12 flex flex-col items-center">
+        <div class="max-w-4xl px-4">
+            <p class="indicator-title text-center mb-8">
+                Si has decidido bautizarte **¡Felicitaciones por esta decisión!** Estamos seguros de que marcará un antes y un después en tu vida.<br>
+                Aquí te dejamos algunas **indicaciones puntuales:**
+            </p>
+            <ul class="indicator-list list-none space-y-3 px-4 sm:px-12">
+                <li>• Antes de bautizarte es importante que hayas completado el curso **CAMINAR**.</li>
+                <li>• Puedes invitar a familiares o amigos para presenciar tu bautizo.</li>
+                <li>• Debes adquirir el polo de bautismo (S/15) y usar un pantalón oscuro.</li>
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;(para que no se trasluzca tu ropa interior al salir del agua)</li>
+                <li>• Recuerda tener ropa de cambio, sandalias, toalla y una bolsa para tu ropa mojada.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="py-20 flex flex-col items-center">
+        <p class="video-cta text-center mb-8">
+            Te invitamos a ver este video para<br>saber más acerca de esta decisión.
+        </p>
+        <div class="video-container mb-12"></div>
+        <div class="flex flex-col sm:flex-row gap-6">
+            <a href="#" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[--dark-blue] text-[--green] font-bold uppercase text-base hover:opacity-90 transition-opacity">
+                quiero bautizarme
+            </a>
+            <a href="#" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[--blue] text-[--light-blue] font-bold uppercase text-base hover:opacity-90 transition-opacity">
+                volver a inicio
+            </a>
+        </div>
+    </div>
+  </main>
+</body>
+</html>

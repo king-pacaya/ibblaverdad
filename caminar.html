@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="multimedia/favicon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <style>
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Regular.ttf') format('truetype'); font-weight: 400; font-style: normal; }
+    @font-face { font-family: 'Moderat'; src: url('font/Moderat-Light.ttf') format('truetype'); font-weight: 300; font-style: normal; }
+    @font-face { font-family: 'Moderat-Title'; src: url('font/MODERAT-EXTENDED-BOLD.TTF') format('truetype'); font-weight: 900; font-style: normal; }
+    * { font-family: 'Moderat', sans-serif; font-weight: 400; font-style: normal; }
+    :root {
+      --green: #83DC5A;
+      --dark-blue: #203855;
+      --blue: #1D54C0;
+      --light-blue: #A0C3EA;
+      --extra-light-blue: #EDF5FF; 
+      --red-step: #F85A5A;
+      --green-step: #16AB6D;
+      --yellow-step: #FFBF3E;
+      --blue-step: #1EAFFD;
+    }
+    body { background-color: var(--extra-light-blue); }
+    .header-caminar {
+      height: 100vh;
+      background-image: url('multimedia/caminar-header.png');
+      background-size: cover;
+      background-position: center 80%;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+    }
+    .header-caminar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    .header-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .svg-container {
+      width: 100px;
+      height: 100px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 1rem;
+      padding: 10px;
+    }
+    .svg-container img {
+      width: 100%;
+      height: 100%;
+    }
+    .title-caminar {
+        font-family: 'Moderat-Title', sans-serif;
+        font-weight: 900;
+        font-size: 3rem;
+        line-height: 1;
+        letter-spacing: 0.1em;
+    }
+    .step-card {
+        max-width: 1157px;
+        box-shadow: 0px 0px 55px rgba(32, 56, 85, 0.25);
+        border-radius: 45px;
+    }
+    .paso-1 .title { color: var(--red-step); }
+    .paso-1 .date { color: var(--red-step); font-weight: 500;}
+    .paso-1 .button { background-color: var(--red-step); }
+    .paso-1 .note { color: var(--red-step); }
+    .paso-2 .title { color: var(--green-step); }
+    .paso-2 .date { color: var(--green-step); font-weight: 500;}
+    .paso-2 .button { background-color: var(--green-step); }
+    .paso-2 .note { color: var(--green-step); }
+    .paso-3 .title { color: var(--yellow-step); }
+    .paso-3 .date { color: var(--yellow-step); font-weight: 500;}
+    .paso-3 .button { background-color: var(--yellow-step); }
+    .paso-3 .note { color: var(--yellow-step); }
+    .paso-4 .title { color: var(--blue-step); }
+    .paso-4 .date { color: var(--blue-step); font-weight: 500;}
+    .paso-4 .button { background-color: var(--blue-step); }
+    .paso-4 .note { color: var(--blue-step); }
+    .card-image-mockup {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+    }
+    .cta-text {
+        font-family: 'Moderat', sans-serif;
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 100%;
+        text-align: center;
+        color: var(--blue);
+    }
+    .main-title-text {
+        font-family: 'Moderat', sans-serif;
+        font-weight: 500;
+        font-size: 40px;
+        line-height: 100%;
+        text-align: center;
+        color: var(--dark-blue);
+        max-width: 764px;
+    }
+  </style>
+  <title>Caminar</title>
+</head>
+<body>
+  <header class="header-caminar">
+    <div class="header-content">
+      <div class="svg-container">
+        <img src="multimedia/caminar.svg" alt="Huellas de Caminar" />
+      </div>
+      <h1 class="title-caminar">CAMINAR</h1>
+    </div>
+  </header>
+  <main class="py-20 flex flex-col items-center">
+    <h2 class="main-title-text mb-6 px-4">Es un buen siguiente paso para conocer más de Dios y nuestra iglesia.</h2>
+    <p class="text-xl text-center text-[--dark-blue] max-w-4xl mb-20 px-4">
+        CAMINAR es un curso de 4 pasos, donde podrás conocernos, hacer preguntas y conocer a otras personas, que al igual que tú, se encuentran empezando una relación con Jesús y han decidido plantarse en la iglesia.
+    </p>
+    <div class="space-y-12 w-full flex flex-col items-center">
+      <section class="step-card paso-1 bg-white p-10 mx-4 flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="card-image-mockup flex-shrink-0" style="background-image: url('multimedia/paso-1.png'), url('Checker.png'); background-size: cover; background-position: center;">
+            <p class="sr-only">Mockup Paso 1</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="title text-3xl font-bold mb-2 uppercase">PASO 1 | PRESENTACIÓN</h3>
+          <p class="date text-xl font-medium mb-8">Primer domingo del mes a las 9:00 am y 5:00pm</p>
+          <a href="#" class="button inline-block text-white font-black text-base uppercase px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">DESCARGAR MANUAL</a>
+          <p class="note text-xl mt-4">Te animamos a llevar CAMINAR de manera consecutiva.</p>
+        </div>
+      </section>
+      <section class="step-card paso-2 bg-white p-10 mx-4 flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="card-image-mockup flex-shrink-0" style="background-image: url('multimedia/paso-2.png'), url('Checker.png'); background-size: cover; background-position: center;">
+            <p class="sr-only">Mockup Paso 2</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="title text-3xl font-bold mb-2 uppercase">PASO 2 | COMUNIÓN</h3>
+          <p class="date text-xl font-medium mb-8">Segundo domingo del mes a las 9:00 am y 5:00pm</p>
+          <a href="#" class="button inline-block text-white font-black text-base uppercase px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">DESCARGAR MANUAL</a>
+          <p class="note text-xl mt-4">Te animamos a llevar CAMINAR de manera consecutiva.</p>
+        </div>
+      </section>
+      <section class="step-card paso-3 bg-white p-10 mx-4 flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="card-image-mockup flex-shrink-0" style="background-image: url('multimedia/paso-3.png'), url('Checker.png'); background-size: cover; background-position: center;">
+            <p class="sr-only">Mockup Paso 3</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="title text-3xl font-bold mb-2 uppercase">PASO 3 | IGLESIA LOCAL</h3>
+          <p class="date text-xl font-medium mb-8">Tercer domingo del mes a las 9:00 am y 5:00pm</p>
+          <a href="#" class="button inline-block text-white font-black text-base uppercase px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">DESCARGAR MANUAL</a>
+          <p class="note text-xl mt-4">Te animamos a llevar CAMINAR de manera consecutiva.</p>
+        </div>
+      </section>
+      <section class="step-card paso-4 bg-white p-10 mx-4 flex flex-col md:flex-row items-center justify-center gap-12">
+        <div class="card-image-mockup flex-shrink-0" style="background-image: url('multimedia/paso-4.png'), url('Checker.png'); background-size: cover; background-position: center;">
+            <p class="sr-only">Mockup Paso 4</p>
+        </div>
+        <div class="text-center md:text-left">
+          <h3 class="title text-3xl font-bold mb-2 uppercase">PASO 4 | OBJETIVOS</h3>
+          <p class="date text-xl font-medium mb-8">Cuarto domingo del mes a las 9:00 am y 5:00pm</p>
+          <a href="#" class="button inline-block text-white font-black text-base uppercase px-8 py-3 rounded-lg hover:opacity-90 transition-opacity">DESCARGAR MANUAL</a>
+          <p class="note text-xl mt-4">Te animamos a llevar CAMINAR de manera consecutiva.</p>
+        </div>
+      </section>
+    </div>
+    <div class="w-full flex flex-col items-center mt-20 pb-40">
+        <p class="cta-text mb-8 px-4">
+            Las clases son presenciales los días domingos, puedes registrarte aquí y ahora.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-6">
+            <a href="#" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[--dark-blue] text-[--green] font-bold uppercase text-base hover:opacity-90 transition-opacity">
+                quiero caminar
+            </a>
+            <a href="index.html" class="inline-flex items-center justify-center h-12 px-8 rounded-full bg-[--blue] text-[--light-blue] font-bold uppercase text-base hover:opacity-90 transition-opacity">
+                volver a inicio
+            </a>
+        </div>
+    </div>
+  </main>
+</body>
+</html>

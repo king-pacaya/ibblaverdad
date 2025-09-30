@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="multimedia/favicon.png">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script> 
+  <style>
+    @font-face {
+        font-family: 'Moderat';
+        src: url('font/Moderat-Bold.ttf') format('truetype');
+        font-weight: 700;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Moderat';
+        src: url('font/Moderat-Medium.ttf') format('truetype');
+        font-weight: 500;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Moderat';
+        src: url('font/Moderat-Regular.ttf') format('truetype');
+        font-weight: 400;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'Moderat';
+        src: url('font/Moderat-Light.ttf') format('truetype');
+        font-weight: 300;
+        font-style: normal;
+    }
+    @font-face {
+        font-family: 'MADE Soulmaze Brush';
+        src: url('font/MADE-Soulmaze-Brush.otf') format('truetype');
+        font-weight: 400;
+        font-style: regular;
+    }
+    .font-moderat-black { font-weight: 900; }
+    * {
+      font-family: 'Moderat', sans-serif;
+      font-weight: 400;
+      font-style: normal;
+    }
+    :root {
+      --green: #83DC5A;
+      --dark-blue: #203855;
+      --blue: #1D54C0;
+      --light-blue: #A0C3EA;
+      --extra-light-blue: #EDF5FF;
+      --arrow-bg: #A5B0C4;
+    }
+    .hero-overlay {
+        background: linear-gradient(180deg, rgba(32, 56, 85, 0.4) 0%, rgba(0, 0, 0, 0.5) 100%);
+    }
+    .navbar-custom {
+        background-color: rgba(237, 245, 255, 0.9);
+        box-shadow: 0 0 20px 0 rgba(32, 56, 85, 0.25);
+    }
+    .hero-bg-position {
+      background-image: url('multimedia/landing-header.jpg');
+      background-size: cover; 
+      background-position: center; 
+      background-repeat: no-repeat;
+    }
+    .card-base {
+        width: 210px;
+        height: 280px; 
+        border-radius: 10px;
+        box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        text-align: center;
+        text-transform: uppercase;
+        color: white; 
+        padding: 20px;
+        transition: all 0.3s ease;
+    }
+    .card-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        line-height: 96%; 
+        font-size: 20px;
+    }
+    .card-text b {
+        font-weight: 900;
+        margin-bottom: 4px;
+    }
+    .card-text span {
+        font-weight: 500;
+    }
+    .card-main {
+        width: 260px;
+        height: 320px; 
+        margin: 0 10px; 
+        box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.4);
+        z-index: 10;
+    }
+    .cards-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+    }
+    .card-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease;
+        margin: 0 10px;
+    }
+    .card-wrapper:first-child {
+        margin-left: 0;
+    }
+    .card-wrapper:last-child {
+        margin-right: 0;
+    }
+
+    /* Estilos para el nuevo Slider */
+    .slider-content-wrapper {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 200%; /* El doble de ancho para 2 slides */
+    }
+    .slider-item {
+        width: 50%; /* Cada slide ocupa la mitad del wrapper */
+        flex-shrink: 0;
+        display: flex; /* Asegura que el contenido interno siga siendo flex */
+        height: 100vh; /* Para mantener la altura de la sección original */
+    }
+    .pagination-dot {
+        width: 10px;
+        height: 10px;
+        background-color: var(--dark-blue);
+        opacity: 0.5;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: opacity 0.3s ease, background-color 0.3s ease;
+    }
+    .pagination-dot.active {
+        opacity: 1;
+        background-color: var(--blue);
+    }
+  </style>
+  <title>Iglesia Bíblica Bautista La verdad | IBBV</title>
+</head>
+<body class="bg-gray-100">
+    <section class="relative w-full h-screen overflow-hidden">
+        <div class="absolute inset-0 hero-bg-position"></div>
+        <div class="absolute inset-0 hero-overlay"></div>
+        <header class="absolute top-[12px] left-1/2 -translate-x-1/2 w-full max-w-5xl z-10 px-4">
+            <nav class="navbar-custom backdrop-blur-sm rounded-full flex items-center justify-between h-[55px] px-4">
+                <a href="#" class="w-[38px] h-[38px] rounded-full flex items-center justify-center shrink-0 overflow-hidden">
+                    <img src="multimedia/favicon.png" alt="Cruz Logo" class="w-full h-full object-cover">
+                </a>
+                <div class="flex items-center space-x-6">
+                    <div class="flex items-center space-x-6 text-[#203855] font-normal text-[17px] hidden lg:flex">
+                        <a href="#" class="flex items-center shrink-0">
+                            Acerca de 
+                            <span class="iconify text-[#1D54C0] ml-1.5" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
+                        </a>
+                        <a href="#" class="shrink-0">Ministerios</a>
+                        <a href="#" class="shrink-0">Oración</a>
+                    </div>
+                    <a href="#" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-normal transition duration-300 w-[75px] h-[38px] text-[17px] flex items-center justify-center shrink-0 hover:bg-blue-700">
+                        Dar
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <div class="relative z-0 h-full flex items-center justify-center text-center text-[#EDF5FF] px-4">
+            <div class="flex flex-col items-center justify-center w-full max-w-4xl">
+                <h1 class="font-moderat text-[50px] font-bold leading-none mb-6">
+                    Bienvenido a La Verdad<br>Huaycán
+                </h1>
+                <p class="font-moderat text-[24px] font-medium leading-tight mb-6">
+                    Te esperamos este domingo<br>a las 10am y 6pm
+                </p>
+                <p class="font-moderat text-[20px] font-light leading-snug mb-10 max-w-xl">
+                    Av. 15 de Julio 4148 - ucv 106 zona G lote 11<br>Huaycán -Ate, Lima - Perú
+                </p>
+                <div class="flex space-x-6">
+                    <a href="#" class="bg-[#83DC5A] text-[#203855] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[5px] px-[20px] h-[45px] flex items-center justify-center hover:opacity-80">
+                        Ubicación
+                    </a>
+                    <a href="#" class="bg-[#A0C3EA] text-[#203855] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[5px] px-[20px] h-[45px] flex items-center justify-center hover:opacity-80">
+                        Contacto
+                    </a>
+                </div>
+            </div>
+        </div>
+        <a href="https://wa.me/numerodetelefono" target="_blank" class="fixed bottom-6 right-6 z-50">
+            <img src="multimedia/whatsapp.png" alt="WhatsApp" class="w-16 h-16 hover:opacity-90 transition duration-300">
+        </a>
+    </section>
+    <section class="w-full h-[343px] bg-[#203855] flex items-center justify-center">
+        <div class="max-w-6xl w-full px-8 md:px-16 flex items-center justify-between">
+            <div class="text-left max-w-sm">
+                <h2 class="font-moderat text-4xl leading-tight font-medium text-[#83DC5A] whitespace-pre-line">
+                    Él trasforma,<br>nosotros servimos.
+                </h2>
+            </div>
+            <div class="text-left max-w-sm">
+                <p class="font-moderat text-xl leading-relaxed font-light text-[#A0C3EA] text-justify">
+                    Somos una iglesia donde todos son bienvenidos. Creemos que La Palabra de Dios hace la obra y nos encantaría ver de cerca como Él transforma tu vida.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="w-full h-screen bg-[#EDF5FF] flex flex-col items-center justify-center pt-0 pb-0 overflow-x-hidden">
+        <div class="flex flex-col items-center mb-10">
+            <h3 class="text-center font-moderat text-[35px] font-bold leading-none mb-6 text-[#203855]">
+                Estás aquí para
+            </h3>
+            <div class="flex space-x-3">
+                <div id="prevBtn" class="p-2.5 rounded-full shadow-md cursor-pointer transition duration-300 hover:opacity-80" style="background-color: var(--arrow-bg);">
+                    <span class="iconify text-white" data-icon="bxs:left-arrow" data-width="16" data-height="16"></span>
+                </div>
+                <div id="nextBtn" class="p-2.5 rounded-full shadow-md cursor-pointer transition duration-300 hover:opacity-80" style="background-color: var(--arrow-bg);">
+                    <span class="iconify text-white" data-icon="bxs:right-arrow" data-width="16" data-height="16"></span>
+                </div>
+            </div>
+        </div>
+        <div class="w-full overflow-visible">
+            <div id="cardsContainer" class="cards-container">
+            </div>
+        </div>
+        <p class="font-moderat text-[18px] font-light leading-relaxed text-center text-[#203855] mt-12 max-w-3xl px-4">
+            Pues yo sé los planes que tengo para ustedes, dice el Señor. Son planes para lo bueno y no para lo malo, para darles un futuro y una esperanza.<br>
+            <span class="font-bold">Jeremías 29:11 NTV</span>
+        </p>
+    </section>
+    <section class="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" 
+             style="background-image: url('multimedia/orar.png');">
+        </div>
+        <div class="absolute inset-0" 
+             style="background-color: #00000033;"> 
+        </div>
+        <div class="relative z-10 text-center text-white px-4 max-w-2xl">
+            <h3 class="font-moderat text-[33px] font-medium leading-none mb-4">
+                Queremos orar por ti
+            </h3>
+            <p class="font-moderat text-[22px] font-light leading-snug mb-8">
+                Estamos seguros de que Dios oye las oraciones de los que lo buscan, y también las responde.
+            </p>
+            <a href="#" class="bg-[#A0C3EA] text-[#1D54C0] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[5px] px-[20px] h-[45px] inline-flex items-center justify-center hover:bg-blue-700">
+                ENVIAR AHORA
+            </a>
+        </div>
+    </section>
+    <section class="w-full h-screen bg-[#EDF5FF] relative overflow-hidden">
+        <div id="courseSlider" class="slider-content-wrapper h-full">
+            <div class="slider-item">
+                <div class="relative w-1/2 h-full flex-shrink-0 rounded-r-[45px] overflow-hidden">
+                    <img src="multimedia/caminar.png" alt="Persona sosteniendo un manual del curso Caminar" class="w-full h-full object-cover">
+                </div>
+                <div class="w-1/2 h-full flex flex-col justify-center items-start p-16 bg-[#EDF5FF] rounded-r-[45px]">
+                    <h3 class="font-moderat text-[33px] font-bold leading-none mb-6 text-[#203855]">Caminar</h3>
+                    <p class="font-moderat text-[22px] font-medium leading-relaxed mb-10 text-[#203855]">Es el siguiente paso para saber más acerca de Dios y nuestra iglesia.</p>
+                    <a href="caminar.html" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[5px] px-[20px] h-[45px] inline-flex items-center justify-center hover:bg-blue-700">VER MÁS</a>
+                </div>
+            </div>
+            <div class="slider-item">
+                <div class="relative w-1/2 h-full flex-shrink-0 rounded-r-[45px] overflow-hidden">
+                    <img src="multimedia/bautismo.png" alt="Persona en una piscina para el bautismo" class="w-full h-full object-cover">
+                </div>
+                <div class="w-1/2 h-full flex flex-col justify-center items-start p-16 bg-[#EDF5FF] rounded-r-[45px]">
+                    <h3 class="font-moderat text-[33px] font-bold leading-none mb-6 text-[#203855]">Bautismo</h3>
+                    <p class="font-moderat text-[22px] font-medium leading-relaxed mb-10 text-[#203855]">Simboliza morir a tu antigua manera de vivir y resucitar a una nueva vida en Jesús.</p>
+                    <a href="bautismo.html" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[5px] px-[20px] h-[45px] inline-flex items-center justify-center hover:bg-blue-700">VER MÁS</a>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex space-x-3 z-20">
+            <div id="sliderPrevBtn" class="p-2.5 rounded-full shadow-md cursor-pointer transition duration-300 hover:opacity-80" style="background-color: var(--arrow-bg);">
+                <span class="iconify text-white" data-icon="bxs:left-arrow" data-width="16" data-height="16"></span>
+            </div>
+            <div id="sliderNextBtn" class="p-2.5 rounded-full shadow-md cursor-pointer transition duration-300 hover:opacity-80" style="background-color: var(--arrow-bg);">
+                <span class="iconify text-white" data-icon="bxs:right-arrow" data-width="16" data-height="16"></span>
+            </div>
+        </div>
+    </section>
+    <section class="relative w-full h-[500px] flex items-center justify-center overflow-hidden">
+      <div class="absolute inset-0 bg-cover bg-center" 
+           style="background-image:url('multimedia/bienvenidos.png'); background-position: center 23%;">
+      </div>
+      <div class="absolute inset-0 bg-black/50"></div>
+      <div class="relative z-10 w-full h-full flex flex-col md:flex-row items-center justify-center max-w-7xl px-4">
+        <div class="flex-1 flex items-center justify-center h-full py-4 md:px-4">
+            <div class="flex items-center justify-center text-white"
+                style="width:220px; height:300px; border-radius:35px; border:3px solid var(--green); background:transparent; padding:20px;">
+                <span class="text-white"
+                  style="font-family:'MADE Soulmaze Brush', sans-serif; font-weight:400; font-size:38px; line-height:73%; text-align:center; color:var(--green);">Desición Eterna</span>
+            </div>
+        </div>
+        <div class="flex-1 flex flex-col items-center justify-center text-center text-white my-4 md:my-0 md:px-4 h-full">
+          <h3 class="font-moderat text-[28px] font-medium leading-none mb-3">Todos son bienvenidos a la familia de La Verdad</h3>
+          <p class="font-moderat text-[18px] font-light leading-snug mb-5">Este libro es un pequeño regalo de parte de nuestros líderes, te ayudará a entender más acerca de la salvación.</p>
+          <a href="#" class="bg-[#A0C3EA] text-[#1D54C0] rounded-full font-bold uppercase text-[15px] py-[5px] px-[15px] h-[40px] inline-flex items-center justify-center hover:bg-blue-700">Descargar</a>
+        </div>
+      </div>
+    </section>
+    <section class="w-full h-screen bg-[#EDF5FF] py-20 md:py-32 flex items-center justify-center">
+        <div class="max-w-6xl w-full px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="flex flex-col items-center text-center md:w-1/2 md:pr-10">
+                <h2 class="font-moderat font-medium text-[33px] leading-none mb-4 text-[#203855]">
+                    Jorge y Graciela
+                </h2>
+                <p class="font-moderat font-light text-[22px] leading-snug mb-8 text-[#203855] max-w-sm text-justify">
+                    Nuestro pastor y su esposa obedecieron el llamado de Dios para establecer una iglesia en Huaycán, confiaron en lo que Dios podía hacer y hoy comparten ese privilegio con cada uno de nosotros.
+                </p>
+                <a href="#" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[10px] px-[30px] h-[45px] flex items-center justify-center hover:bg-blue-700">
+                    Ver Equipo Ministerial
+                </a>
+            </div>
+            <div class="md:w-1/2 flex justify-center md:justify-start md:pl-10">
+                <div class="w-[300px] h-[300px] md:w-[350px] md:h-[350px] overflow-hidden rounded-[20px] shadow-2xl">
+                    <img src="multimedia/pastores.jpg" alt="Pastores Jorge y Graciela" class="w-full h-full object-cover">
+                </div>
+            </div> 
+        </div>
+    </section>
+    <section class="w-full h-screen flex flex-col items-center justify-start text-center px-4 overflow-hidden" style="background-color: #AAEDA1;">
+        <div class="pt-20 pb-10 w-full max-w-6xl flex-shrink-0">
+            <h2 class="font-moderat text-[45px] font-bold leading-none text-[#244316]">
+                Sigue nuestro canal de WhatsApp
+            </h2>
+        </div>
+        <div class="flex-grow w-full flex items-center justify-center max-w-6xl">
+            <div class="flex items-center justify-center gap-16 w-full">
+                <div class="w-[320px] h-full hidden md:block">
+                    <img src="multimedia/phone.png" alt="Canal de WhatsApp en un teléfono" class="w-full h-full object-contain">
+                </div>
+                <div class="flex flex-col items-center justify-center">
+                    <img src="multimedia/qr.jpg" alt="Código QR del Canal de WhatsApp" class="w-[180px] h-[180px] object-cover mb-6 rounded-[20px] flex-shrink-0">
+                    <h3 class="font-moderat text-[22px] font-medium leading-tight mb-2 text-[#244316] flex-shrink-0">
+                        La Verdad NOTICIAS
+                    </h3>
+                    <p class="font-moderat text-[18px] font-light leading-snug mb-8 text-[#244316] max-w-xs">
+                        Puedes estar al tanto de las reuniones, actividades y eventos que se realizan en nuestra iglesia.
+                    </p>
+                    <a href="https://whatsapp.com/channel/0029Vb6XpwyF6smucc4r2C1C" class="bg-[#244316] text-white rounded-full font-bold uppercase transition duration-300 text-[16.81px] py-[10px] px-[30px] h-[45px] inline-flex items-center justify-center hover:bg-gray-800 flex-shrink-0">
+                        Ver Ahora
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full bg-[#203855] py-10 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-[#EDF5FF] text-center md:text-left">
+            
+            <div class="flex-1 flex flex-col items-center md:items-start mb-8 md:mb-0">
+                <h2 class="font-moderat text-4xl leading-snug font-medium text-[#EDF5FF] mb-12">
+                    Él transforma,<br>nosotros servimos.
+                </h2>
+                <p class="font-moderat text-base font-light opacity-70">
+                    © 2025 ibblaverdad
+                </p>
+            </div>
+
+            <div class="flex-1 flex flex-col items-center md:items-end">
+                
+                <div class="w-[280px] h-[180px] overflow-hidden rounded-[8px] mb-4 shadow-xl">
+                    <img src="multimedia/iglesia.jpg" alt="Vista aérea de la iglesia" class="w-full h-full object-cover">
+                </div>
+
+                <p class="font-moderat text-base font-light leading-relaxed text-right">
+                    Av. 15 de Julio 4148<br>
+                    Ucv 106 Zona G Lote 11<br>
+                    Huaycán - Ate
+                </p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Lógica del primer slider de tarjetas (Estás aquí para)
+            const cards = [
+                { title: "CONOCER", subtitle: "A DIOS", color: "#203855" },
+                { title: "SER", subtitle: "DIFERENTE", color: "#A0C3EA" },
+                { title: "DESCUBRIR", subtitle: "PROPÓSITO", color: "#1D54C0" },
+                { title: "ENCONTRAR", subtitle: "LIBERTAD", color: "#83DC5A" }
+            ];
+
+            const container = document.getElementById('cardsContainer');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            
+            let currentIndex = 0;
+            const visibleCards = 7; 
+            
+            function generateCards() {
+                container.innerHTML = '';
+                const startIndex = currentIndex;
+                
+                for (let i = 0; i < visibleCards; i++) {
+                    const cardIndex = (startIndex + i) % cards.length;
+                    const card = cards[cardIndex];
+                    
+                    const cardElement = document.createElement('div');
+                    cardElement.className = 'card-wrapper';
+                    
+                    const cardDiv = document.createElement('div');
+                    cardDiv.className = i === Math.floor(visibleCards / 2) ? 'card-base card-main' : 'card-base';
+                    cardDiv.style.backgroundColor = card.color;
+                    
+                    const cardText = document.createElement('div');
+                    cardText.className = 'card-text';
+                    cardText.innerHTML = `<b>${card.title}</b><span>${card.subtitle}</span>`;
+                    
+                    cardDiv.appendChild(cardText);
+                    cardElement.appendChild(cardDiv);
+                    container.appendChild(cardElement);
+                }
+            }
+            
+            function nextCard() {
+                currentIndex = (currentIndex + 1) % cards.length;
+                generateCards();
+            }
+            
+            function prevCard() {
+                currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+                generateCards();
+            }
+            
+            prevBtn.addEventListener('click', prevCard);
+            nextBtn.addEventListener('click', nextCard);
+            
+            generateCards();
+
+
+            // Lógica del NUEVO slider (Caminar y Bautismo)
+            const slider = document.getElementById('courseSlider');
+            const slides = document.querySelectorAll('.slider-item');
+            const sliderPrevBtn = document.getElementById('sliderPrevBtn');
+            const sliderNextBtn = document.getElementById('sliderNextBtn');
+            
+            let currentSlide = 0;
+            const totalSlides = slides.length;
+
+            // Función para ir a un slide específico
+            function goToSlide(index) {
+                currentSlide = index;
+                const offset = -currentSlide * (100 / totalSlides); // 0% o -50%
+                slider.style.transform = `translateX(${offset}%)`;
+                updateDots();
+            }
+
+            // Navegar al slide anterior
+            function slidePrev() {
+                const newIndex = (currentSlide - 1 + totalSlides) % totalSlides;
+                goToSlide(newIndex);
+            }
+
+            // Navegar al siguiente slide
+            function slideNext() {
+                const newIndex = (currentSlide + 1) % totalSlides;
+                goToSlide(newIndex);
+            }
+            
+            // Asignar eventos a los botones del nuevo slider
+            sliderPrevBtn.addEventListener('click', slidePrev);
+            sliderNextBtn.addEventListener('click', slideNext);
+
+            // Inicializar el slider
+            goToSlide(0); // Mostrar el primer slide al cargar
+        });
+    </script>
+</body>
+</html>
