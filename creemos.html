@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="multimedia/favicon.svg">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script> 
   <style>
     @font-face { font-family: 'Moderat'; src: url('font/Moderat-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
     @font-face { font-family: 'Moderat'; src: url('font/Moderat-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; }
@@ -70,96 +70,30 @@
     }
     .dropdown-content a:hover { background-color: rgba(32,56,85,0.1); }
     .dropdown:hover .dropdown-content { display: block; }
-    .header-bautismo {
+    .header-creemos {
       height: 100vh;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('multimedia/bautismo-header.jpg');
+      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('multimedia/creemos.png');
       background-size: cover;
-      background-position: center;
+      background-position: center 20%;
       position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      color: white;
       text-align: center;
-    }
-    .header-content {
-      padding: 20px;
-      max-width: 900px;
-      z-index: 2;
-    }
-    .title-bautismo {
-      font-weight: 700;
-      font-size: clamp(2.25rem, 6vw, 2.8rem);
-      line-height: 1.1;
       color: var(--extra-light-blue);
-      margin-bottom: 1.5rem;
     }
-    .description-bautismo {
-      font-weight: 400;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.3;
-      color: var(--extra-light-blue);
-      max-width: 700px;
-      margin: 0 auto;
+    .beliefs-list li {
+        padding-left: 20px;
+        position: relative;
     }
-    .verse-text {
-      color: var(--dark-blue);
-      font-weight: 700;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.4;
-    }
-    .verse-reference {
-      color: var(--dark-blue);
-      font-weight: 700;
-      font-size: clamp(1rem, 3vw, 1.25rem);
-      margin-top: 1rem;
-    }
-    .indicator-title {
-      color: var(--dark-blue);
-      font-weight: 500;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.4;
-    }
-    .indicator-subtitle {
-      color: var(--blue);
-      font-weight: 500;
-      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-    .indicator-list {
-      color: var(--dark-blue);
-      font-weight: 400;
-      font-size: clamp(1rem, 3vw, 1.1rem);
-      line-height: 1.6;
-    }
-    .indicator-list li {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-      position: relative;
-    }
-    .indicator-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      font-size: 1.5em;
-      line-height: 1;
-      color: var(--dark-blue);
-    }
-    .video-cta {
-      color: var(--blue);
-      font-weight: 500;
-      font-size: clamp(1.2rem, 4vw, 1.4rem);
-    }
-    .video-container {
-      width: 100%;
-      max-width: 767px;
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
-      background: url('multimedia/video-bautismo.png'), url('multimedia/checker.png');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .beliefs-list li::before {
+        content: '•';
+        position: absolute;
+        left: 0;
+        top: 0;
+        font-size: 1.2em;
+        line-height: 1.5;
+        color: var(--dark-blue);
     }
     @media (max-width: 768px) {
       .navbar-custom { max-width: 95%; }
@@ -177,7 +111,7 @@
       .whatsapp-button { width: 56px; height: 56px; }
     }
   </style>
-  <title>Bautismo | IBBV</title>
+  <title>En qué creemos | IBBV</title>
 </head>
 <body class="bg-[--extra-light-blue]">
   <header>
@@ -207,58 +141,48 @@
     </nav>
   </header>
 
-  <section class="header-bautismo">
-    <div class="header-content">
-      <h1 class="title-bautismo">Bautismo</h1>
-      <p class="description-bautismo">Tomar la decisión de bautizarte en agua, simboliza el morir a tu antigua manera de vivir y resucitar a una nueva vida en Jesús.</p>
+  <section class="header-creemos">
+    <div class="z-10 px-4">
+      <h1 class="font-bold text-4xl md:text-5xl mb-4">En qué creemos</h1>
+      <p class="font-medium text-lg md:text-2xl max-w-3xl mx-auto">Son las doctrinas básicas de la fe cristiana y principios no negociables en los que creemos.</p>
     </div>
   </section>
 
-  <section class="py-16 md:py-20 w-full flex justify-center bg-[--extra-light-blue]">
-    <div class="max-w-4xl px-4 text-center">
-      <p class="verse-text">
-        Si alguno está en Cristo, es una nueva creación.<br>¡Lo viejo ha pasado, ha llegado ya lo nuevo!
-      </p>
-      <p class="verse-reference">
-        2 Corintios 5:17 NTV
-      </p>
-    </div>
-  </section>
-
-  <section class="w-full bg-white py-16 md:py-20">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="indicator-title">
-        Si has decidido bautizarte ¡Felicitaciones por esta decisión!<br>
-        Estamos seguros de que marcará un antes y un después en tu vida.
-      </p>
-      <p class="indicator-subtitle">
-        Aquí te dejamos algunas indicaciones puntuales:
-      </p>
-      <ul class="indicator-list list-none text-left inline-block">
-        <li>Antes de bautizarte es importante que hayas completado el curso CAMINAR.</li>
-        <li>Puedes invitar a familiares o amigos para presenciar tu bautizo.</li>
-        <li>Debes adquirir el polo de bautismo (S/15) y usar un pantalón oscuro (para que no se trasluzca tu ropa interior al salir del agua).</li>
-        <li>Recuerda tener ropa de cambio, sandalias, toalla y una bolsa para tu ropa mojada.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-20 w-full flex flex-col items-center bg-[--extra-light-blue]">
-    <div class="max-w-4xl w-full px-4 flex flex-col items-center">
-        <p class="video-cta text-center mb-8">
-        Te invitamos a ver este video para<br>saber más acerca de esta decisión.
-        </p>
-        <div class="video-container mb-12"></div>
-        <div class="flex flex-col sm:flex-row gap-6">
-            <a href="https://tr.ee/formulario-bautismo" class="btn-standard bg-[--dark-blue] text-[--green] hover:opacity-90 transition-opacity">
-                quiero bautizarme
-            </a>
+  <main class="py-16 md:py-20">
+    <div class="max-w-4xl mx-auto px-4">
+        <ul class="beliefs-list space-y-10 text-xl md:text-2xl text-[--dark-blue]">
+            <li>
+              <span class="font-medium">La Biblia es inspirada por Dios (completamente).</span>
+              <span class="block font-bold mt-1">2 Timoteo 3:16</span>
+            </li>
+            <li>
+              <span class="font-medium">Existe un solo Dios (en tres personas que conforman la trinidad).</span>
+              <span class="block font-bold mt-1">1 Timoteo 2:5</span>
+            </li>
+            <li>
+              <span class="font-medium">La sangre de Jesús perdona nuestros pecados.</span>
+              <span class="block font-bold mt-1">Efesios 1:7</span>
+            </li>
+            <li>
+              <span class="font-medium">Somos salvos por gracia y por el sacrificio de Jesús (únicamente).</span>
+              <span class="block font-bold mt-1">Romanos 3:24</span>
+            </li>
+            <li>
+              <span class="font-medium">Jesús resucitó y ascendió al cielo (literalmente).</span>
+              <span class="block font-bold mt-1">1 Corintios 15:3-4</span>
+            </li>
+            <li>
+              <span class="font-medium">Jesús vendrá por segunda vez.</span>
+              <span class="block font-bold mt-1">1 Tesalonicenses 4:16-17</span>
+            </li>
+        </ul>
+        <div class="text-center mt-16 md:mt-20">
             <a href="index.html" class="btn-standard bg-[--blue] text-[--light-blue] hover:opacity-90 transition-opacity">
                 volver a inicio
             </a>
         </div>
     </div>
-  </section>
+  </main>
 
   <footer class="w-full bg-[#203855] py-6 px-4">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-[#EDF5FF] text-center md:text-left gap-6">

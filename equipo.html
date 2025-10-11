@@ -6,7 +6,7 @@
   <link rel="shortcut icon" href="multimedia/favicon.svg">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script> 
   <style>
     @font-face { font-family: 'Moderat'; src: url('font/Moderat-Bold.ttf') format('truetype'); font-weight: 700; font-style: normal; }
     @font-face { font-family: 'Moderat'; src: url('font/Moderat-Medium.ttf') format('truetype'); font-weight: 500; font-style: normal; }
@@ -70,96 +70,8 @@
     }
     .dropdown-content a:hover { background-color: rgba(32,56,85,0.1); }
     .dropdown:hover .dropdown-content { display: block; }
-    .header-bautismo {
-      height: 100vh;
-      background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('multimedia/bautismo-header.jpg');
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: white;
-      text-align: center;
-    }
-    .header-content {
-      padding: 20px;
-      max-width: 900px;
-      z-index: 2;
-    }
-    .title-bautismo {
-      font-weight: 700;
-      font-size: clamp(2.25rem, 6vw, 2.8rem);
-      line-height: 1.1;
-      color: var(--extra-light-blue);
-      margin-bottom: 1.5rem;
-    }
-    .description-bautismo {
-      font-weight: 400;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.3;
-      color: var(--extra-light-blue);
-      max-width: 700px;
-      margin: 0 auto;
-    }
-    .verse-text {
-      color: var(--dark-blue);
-      font-weight: 700;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.4;
-    }
-    .verse-reference {
-      color: var(--dark-blue);
-      font-weight: 700;
-      font-size: clamp(1rem, 3vw, 1.25rem);
-      margin-top: 1rem;
-    }
-    .indicator-title {
-      color: var(--dark-blue);
-      font-weight: 500;
-      font-size: clamp(1.25rem, 4vw, 1.5rem);
-      line-height: 1.4;
-    }
-    .indicator-subtitle {
-      color: var(--blue);
-      font-weight: 500;
-      font-size: clamp(1.1rem, 3.5vw, 1.3rem);
-      margin-top: 1rem;
-      margin-bottom: 2rem;
-    }
-    .indicator-list {
-      color: var(--dark-blue);
-      font-weight: 400;
-      font-size: clamp(1rem, 3vw, 1.1rem);
-      line-height: 1.6;
-    }
-    .indicator-list li {
-      margin-bottom: 1rem;
-      padding-left: 2rem;
-      position: relative;
-    }
-    .indicator-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      font-size: 1.5em;
-      line-height: 1;
-      color: var(--dark-blue);
-    }
-    .video-cta {
-      color: var(--blue);
-      font-weight: 500;
-      font-size: clamp(1.2rem, 4vw, 1.4rem);
-    }
-    .video-container {
-      width: 100%;
-      max-width: 767px;
-      aspect-ratio: 16 / 9;
-      border-radius: 20px;
-      background: url('multimedia/video-bautismo.png'), url('multimedia/checker.png');
-      background-size: cover;
-      background-position: center;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .tab-btn {
+        transition: all 0.3s ease;
     }
     @media (max-width: 768px) {
       .navbar-custom { max-width: 95%; }
@@ -177,7 +89,7 @@
       .whatsapp-button { width: 56px; height: 56px; }
     }
   </style>
-  <title>Bautismo | IBBV</title>
+  <title>Equipo Ministerial | IBBV</title>
 </head>
 <body class="bg-[--extra-light-blue]">
   <header>
@@ -207,58 +119,58 @@
     </nav>
   </header>
 
-  <section class="header-bautismo">
-    <div class="header-content">
-      <h1 class="title-bautismo">Bautismo</h1>
-      <p class="description-bautismo">Tomar la decisión de bautizarte en agua, simboliza el morir a tu antigua manera de vivir y resucitar a una nueva vida en Jesús.</p>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-20 w-full flex justify-center bg-[--extra-light-blue]">
-    <div class="max-w-4xl px-4 text-center">
-      <p class="verse-text">
-        Si alguno está en Cristo, es una nueva creación.<br>¡Lo viejo ha pasado, ha llegado ya lo nuevo!
-      </p>
-      <p class="verse-reference">
-        2 Corintios 5:17 NTV
-      </p>
-    </div>
-  </section>
-
-  <section class="w-full bg-white py-16 md:py-20">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <p class="indicator-title">
-        Si has decidido bautizarte ¡Felicitaciones por esta decisión!<br>
-        Estamos seguros de que marcará un antes y un después en tu vida.
-      </p>
-      <p class="indicator-subtitle">
-        Aquí te dejamos algunas indicaciones puntuales:
-      </p>
-      <ul class="indicator-list list-none text-left inline-block">
-        <li>Antes de bautizarte es importante que hayas completado el curso CAMINAR.</li>
-        <li>Puedes invitar a familiares o amigos para presenciar tu bautizo.</li>
-        <li>Debes adquirir el polo de bautismo (S/15) y usar un pantalón oscuro (para que no se trasluzca tu ropa interior al salir del agua).</li>
-        <li>Recuerda tener ropa de cambio, sandalias, toalla y una bolsa para tu ropa mojada.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="py-16 md:py-20 w-full flex flex-col items-center bg-[--extra-light-blue]">
-    <div class="max-w-4xl w-full px-4 flex flex-col items-center">
-        <p class="video-cta text-center mb-8">
-        Te invitamos a ver este video para<br>saber más acerca de esta decisión.
-        </p>
-        <div class="video-container mb-12"></div>
-        <div class="flex flex-col sm:flex-row gap-6">
-            <a href="https://tr.ee/formulario-bautismo" class="btn-standard bg-[--dark-blue] text-[--green] hover:opacity-90 transition-opacity">
-                quiero bautizarme
-            </a>
-            <a href="index.html" class="btn-standard bg-[--blue] text-[--light-blue] hover:opacity-90 transition-opacity">
-                volver a inicio
-            </a>
+  <main class="pt-28 pb-16 md:pt-32 md:pb-20">
+    <div class="max-w-7xl mx-auto px-4">
+      <h1 class="text-4xl md:text-5xl font-bold text-[--dark-blue] text-center mb-8">Nuestro equipo ministerial</h1>
+      
+      <div class="flex justify-center mb-12">
+        <div class="bg-white rounded-full shadow-lg p-1.5 flex space-x-2">
+          <button id="liderazgoBtn" class="tab-btn bg-[--dark-blue] text-white font-bold text-sm uppercase px-6 py-2 rounded-full">Liderazgo</button>
+          <button id="areasBtn" class="tab-btn bg-transparent text-[--dark-blue] font-bold text-sm uppercase px-6 py-2 rounded-full">Áreas de servicio</button>
         </div>
+      </div>
+      
+      <div id="liderazgo-section">
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-12">
+            <div class="flex flex-col items-center text-center w-[300px]">
+                <div class="w-full aspect-square rounded-2xl mb-4 bg-cover bg-center" style="background-image: url('multimedia/checker.png');"></div>
+                <h3 class="text-2xl md:text-3xl font-medium text-[--dark-blue]">Jorge Vidal</h3>
+                <p class="text-lg md:text-xl font-light text-[--dark-blue]">Pastor</p>
+            </div>
+            <div class="flex flex-col items-center text-center w-[300px]">
+                <div class="w-full aspect-square rounded-2xl mb-4 bg-cover bg-center" style="background-image: url('multimedia/checker.png');"></div>
+                <h3 class="text-2xl md:text-3xl font-medium text-[--dark-blue]">Pedro García</h3>
+                <p class="text-lg md:text-xl font-light text-[--dark-blue]">Líder de Hombres</p>
+            </div>
+            <div class="flex flex-col items-center text-center w-[300px]">
+                <div class="w-full aspect-square rounded-2xl mb-4 bg-cover bg-center" style="background-image: url('multimedia/checker.png');"></div>
+                <h3 class="text-2xl md:text-3xl font-medium text-[--dark-blue]">Graciela Cárdenas</h3>
+                <p class="text-lg md:text-xl font-light text-[--dark-blue]">Líder de Mujeres</p>
+            </div>
+            <div class="flex flex-col items-center text-center w-[300px]">
+                <div class="w-full aspect-square rounded-2xl mb-4 bg-cover bg-center" style="background-image: url('multimedia/checker.png');"></div>
+                <h3 class="text-2xl md:text-3xl font-medium text-[--dark-blue]">César Miñope</h3>
+                <p class="text-lg md:text-xl font-light text-[--dark-blue]">Líder de Adolescentes</p>
+            </div>
+            <div class="flex flex-col items-center text-center w-[300px]">
+                <div class="w-full aspect-square rounded-2xl mb-4 bg-cover bg-center" style="background-image: url('multimedia/checker.png');"></div>
+                <h3 class="text-2xl md:text-3xl font-medium text-[--dark-blue]">Job Vidal</h3>
+                <p class="text-lg md:text-xl font-light text-[--dark-blue]">Líder de Jóvenes</p>
+            </div>
+        </div>
+      </div>
+      
+      <div id="areas-section" class="hidden text-center text-[--dark-blue]">
+        <p class="text-lg">Contenido de Áreas de Servicio próximamente.</p>
+      </div>
+      
+      <div class="text-center mt-16 md:mt-20">
+        <a href="index.html" class="btn-standard bg-[--blue] text-[--light-blue] hover:opacity-90 transition-opacity">
+            volver a inicio
+        </a>
+      </div>
     </div>
-  </section>
+  </main>
 
   <footer class="w-full bg-[#203855] py-6 px-4">
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-[#EDF5FF] text-center md:text-left gap-6">
@@ -286,5 +198,32 @@
   <a href="https://wa.me/51936512948?text=%C2%A1Hola!%20Quiero%20informaci%C3%B3n%20acerca%20de%20Iglesia%20La%20Verdad." target="_blank" class="fixed bottom-6 right-6 z-50 whatsapp-button">
     <img src="multimedia/whatsapp.svg" alt="WhatsApp" class="w-14 h-14 md:w-16 md:h-16">
   </a>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const liderBtn = document.getElementById('liderazgoBtn');
+        const areasBtn = document.getElementById('areasBtn');
+        const liderSection = document.getElementById('liderazgo-section');
+        const areasSection = document.getElementById('areas-section');
+
+        liderBtn.addEventListener('click', () => {
+            liderBtn.classList.add('bg-[--dark-blue]', 'text-white');
+            liderBtn.classList.remove('bg-transparent', 'text-[--dark-blue]');
+            areasBtn.classList.add('bg-transparent', 'text-[--dark-blue]');
+            areasBtn.classList.remove('bg-[--dark-blue]', 'text-white');
+            liderSection.classList.remove('hidden');
+            areasSection.classList.add('hidden');
+        });
+
+        areasBtn.addEventListener('click', () => {
+            areasBtn.classList.add('bg-[--dark-blue]', 'text-white');
+            areasBtn.classList.remove('bg-transparent', 'text-[--dark-blue]');
+            liderBtn.classList.add('bg-transparent', 'text-[--dark-blue]');
+            liderBtn.classList.remove('bg-[--dark-blue]', 'text-white');
+            areasSection.classList.remove('hidden');
+            liderSection.classList.add('hidden');
+        });
+    });
+  </script>
 </body>
 </html>
