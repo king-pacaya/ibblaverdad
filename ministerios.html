@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="multimedia/favicon.svg">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
+  <style>
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Bold.ttf') format('truetype');font-weight: 700;font-style: normal;}
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Medium.ttf') format('truetype');font-weight: 500;font-style: normal;}
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Regular.ttf') format('truetype');font-weight: 400;font-style: normal;}
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Light.ttf') format('truetype');font-weight: 300;font-style: normal;}
+    @font-face {font-family: 'MADE Soulmaze Brush';src: url('font/MADE-Soulmaze-Brush.otf') format('truetype');font-weight: 400;font-style: regular;}
+    *{font-family: 'Moderat', sans-serif;font-weight: 400;font-style: normal;}
+    :root {--green: #83DC5A;--dark-blue: #203855;--blue: #1D54C0;--light-blue: #A0C3EA;--extra-light-blue: #EDF5FF;--arrow-bg: #A5B0C4;}
+    .hero-overlay {background: linear-gradient(180deg, rgba(32,56,85,0.4) 0%, rgba(0,0,0,0.5) 100%);}
+    .navbar-custom {background-color: rgba(237,245,255,0.80);box-shadow: 0 0 20px 0 rgba(32,56,85,0.25);position: fixed;top: 12px;left: 50%;transform: translateX(-50%);width: 100%;max-width: 896px;z-index: 1000; transition: transform 0.3s ease-in-out;}
+    .navbar-hidden { transform: translateX(-50%) translateY(-150%); }
+    .hero-bg-position {background-image: url('multimedia/landing-header.jpg');background-size: cover;background-position: 70% 70%;background-repeat: no-repeat;}
+    .card-base {width: clamp(150px, 15vw, 210px);height: clamp(200px, 25vw, 280px);border-radius: 10px;box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);display: flex;align-items: center;justify-content: center;flex-shrink: 0;text-align: center;text-transform: uppercase;color: white;padding: 20px;transition: all 0.5s ease;}
+    .card-text {display: flex;flex-direction: column;align-items: center;justify-content: center;line-height: 96%;font-size: clamp(16px, 2vw, 20px);}
+    .card-text b {font-weight: 900;margin-bottom: 4px;}
+    .card-text span {font-weight: 500;}
+    /* MODIFICACIÓN: Se usa el card-main de old.html (con margin) */
+    .card-main {width: clamp(150px, 15vw, 210px);height: clamp(200px, 25vw, 280px);margin: 0 4px;box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);z-index: 1;}
+    .btn-standard {height: 40px;padding: 0 20px;border-radius: 20px;font-weight: 700;font-size: 14px;text-transform: uppercase;display: inline-flex;align-items: center;justify-content: center;}
+    .dropdown {position: relative;display: inline-block;}
+    .dropdown-content {display: none;position: absolute;background-color: rgba(237,245,255,0.9);backdrop-filter: blur(10px);min-width: 180px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);border-radius: 10px;z-index: 1;top: 100%;left: 0;margin-top: 12px;padding: 10px 0;}
+    .dropdown-content a {color: var(--dark-blue);padding: 12px 16px;text-decoration: none;display: block;font-size: 14px;transition: background-color 0.3s;}
+    .dropdown-content a:hover {background-color: rgba(32,56,85,0.1);}
+    .course-slider-container {width: 100%; position: relative; overflow: hidden;}
+    .course-slides-wrapper {display: flex; transition: transform 0.5s ease-in-out; height: 100%;}
+    .course-slide {width: 100%; flex-shrink: 0; display: flex; height: 100%; align-items: stretch;}
+    .course-slide-content {display: flex; width: 100%; align-items: stretch;}
+    .course-image-container {width: 50%; flex-shrink: 0; border-radius: 0 45px 45px 0;}
+    .course-image-container img {width: 100%; height: 100%; object-fit: cover; border-radius: 0 45px 45px 0;}
+    .course-info-container {width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; padding: 2rem 3rem;}
+    .course-slider-nav-buttons {position: absolute; bottom: 2rem; left: 0; right: 0; display: flex; justify-content: center; z-index: 20;}
+    @media (max-width: 768px) {
+      .hero-section-content {justify-content: flex-end !important;align-items: center;padding-bottom: 20px;height: 100%;}
+      .hero-section-content h1 {font-size: 1.8rem;margin-bottom: 0.75rem;}
+      .hero-section-content p.font-medium {font-size: 1.25rem;margin-bottom: 0.75rem;}
+      .hero-section-content p.font-light {font-size: 1rem;margin-bottom: 1.25rem;}
+      .course-slider-container {padding: 3rem 0; height: auto;}
+      .course-slide {height: auto; align-items: flex-start;}
+      .course-slide-content {flex-direction: column; align-items: center; text-align: center;}
+      .course-info-container {display: contents;}
+      .course-slide-content h3, .course-slide-content p {
+        order: 1;
+        width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        text-align: center;
+      }
+      .course-slide-content h3 {
+        padding-top: 2rem;
+      }
+      .course-image-container {
+        order: 2;
+        width: 80%; 
+        max-width: 400px;
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+        border-radius: 25px; 
+        overflow: hidden; 
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      }
+      .course-image-container img {
+        border-radius: 0;
+      }
+      .course-slide .btn-standard {
+        order: 3;
+        margin-bottom: 1rem;
+      }
+      .course-slider-nav-buttons {position: relative; bottom: auto; margin-top: 1rem;}
+      /* Se mantiene el ajuste para el slider mobile */
+      .card-base {width: 260px;height: 340px;margin: 10px 0;}
+      .card-text {font-size: 1.5rem;}
+      .navbar-custom {max-width: 95%;}
+      .hero-bg-position {background-position: 60% center;}
+      .dropdown-content {position: static;display: none;width: 100%;box-shadow: none;background-color: rgba(237,245,255,0.8);margin-top: 0;}
+      .dropdown:hover .dropdown-content {display: block;}
+    }
+    @media (max-width: 480px) {
+      .whatsapp-button {width: 56px;height: 56px;}
+    }
+  </style>
+  <title>Ministerios | ibblaverdad</title>
+</head>
+<body class="bg-[#EDF5FF]">
+
+  <header>
+    <nav id="navbar" class="navbar-custom backdrop-blur-sm rounded-full flex items-center justify-between h-14 px-4">
+      <a href="index.html" class="w-10 h-10 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
+        <img src="multimedia/favicon.png" alt="Cruz Logo" class="w-full h-full object-cover">
+      </a>
+      <div class="flex items-center space-x-6">
+        <div class="flex items-center space-x-6 text-[#203855] font-normal text-base hidden lg:flex">
+          <div class="dropdown">
+            <span class="flex items-center shrink-0 cursor-pointer">
+              Acerca de
+              <span class="iconify text-[#1D54C0]" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
+            </span>
+            <div class="dropdown-content">
+              <a href="adn.html">Nuestro ADN</a>
+              <a href="creemos.html">En qué creemos</a>
+            </div>
+          </div>
+          <a href="ministerios.html" class="shrink-0">Ministerios</a>
+          <a href="httpsa://tr.ee/8FKjw5gHMi" class="shrink-0">Oración</a>
+        </div>
+        <a href="dar.html" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-normal w-20 h-10 text-base flex items-center justify-center shrink-0">
+          Dar
+        </a>
+      </div>
+      </nav>
+  </header>
+
+  <main>
+    <section class="w-full py-24 pt-32 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-4xl md:text-5xl font-bold text-[#203855] text-center mb-4">
+          Nuestros ministerios
+        </h2>
+        <p class="text-lg md:text-xl font-medium text-[#203855] text-center max-w-2xl mx-auto mb-12 md:mb-20">
+          Nos reunimos todos cada domingos, pero también en reuniones por edades que podrás encontrar aquí.
+        </p>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-x-16 md:gap-y-16 max-w-5xl mx-auto">
+          
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/niños.png" alt="Ministerio de Niños" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">Niños</h3>
+            <p class="text-lg font-light text-[#203855]">Niños de 3 a 12 años</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/c3.png" alt="Ministerio C3" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">C3</h3>
+            <p class="text-lg font-light text-[#203855]">Adolescentes de 13 a 17 años</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/l5s.png" alt="Ministerio Las 5 Solas" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">Las 5 Solas</h3>
+            <p class="text-lg font-light text-[#203855]">Jóvenes de 18 a 35 años</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/hombres.png" alt="Ministerio Hombres de Valor" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">Hombres de Valor</h3>
+            <p class="text-lg font-light text-[#203855]">Hombres adultos</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/unicas.png" alt="Ministerio Únicas" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">Únicas</h3>
+            <p class="text-lg font-light text-[#203855]">Mujeres adultas</p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <img src="multimedia/parejas.png" alt="Ministerio de Parejas" class="w-36 h-36 object-contain mb-4">
+            <h3 class="text-3xl font-medium text-[#203855] leading-none">Parejas</h3>
+            <p class="text-lg font-light text-[#203855]">Parejas y matrimonios</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="w-full bg-[#1D54C0] py-16 md:py-24">
+      
+      <div class="max-w-5xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+        
+        <div class="flex flex-col items-center md:items-start text-center md:text-left text-[#EDF5FF]">
+          <h2 class="text-3xl font-medium mb-4">¿Primera vez aquí?</h2>
+          <p class="text-lg font-light mb-8 max-w-md">
+            ¡Bienvenido a casa! Nos encantaría que sigas conectado a la iglesia y te sientas parte de esta gran familia. Por favor escríbenos a nuestro WhatsApp o déjanos tus datos aquí en el botón.
+          </p>
+          <a href="#" class="btn-standard bg-[#203855] text-[#83DC5A]">
+            DEJAR MIS DATOS
+          </a>
+        </div>
+
+        <div class="flex items-center justify-center p-8 rounded-2xl min-h-[285px]" style="background-image: url('multimedia/checker.png');">
+          <span class="text-4xl font-medium text-white text-center">
+            Todos son bienvenidos
+          </span>
+        </div>
+      </div>
+      
+      <div class="w-full flex justify-center pt-16">
+        <a href="index.html" class="btn-standard bg-[#A0C3EA] text-[#1D54C0]">
+          VOLVER A INICIO
+        </a>
+      </div>
+
+    </section>
+
+    </main>
+
+  <a href="https://wa.me/51936512948?text=%C2%A1Hola!%20Quiero%20informaci%C3%B3n%20acerca%20de%20Iglesia%20La%20Verdad." target="_blank" class="fixed bottom-6 right-6 z-50 whatsapp-button">
+    <img src="multimedia/whatsapp.svg" alt="WhatsApp" class="w-14 h-14 md:w-16 md:h-16">
+  </a>
+
+  <footer class="w-full bg-[#203855] py-6 px-4">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between text-[#EDF5FF] text-center md:text-left gap-6">
+      <div class="flex-1 flex flex-col items-center md:items-start">
+        <h2 class="font-moderat text-2xl md:text-3xl leading-snug font-medium text-[#EDF5FF] mb-4">
+          Iglesia Bíblica Bautista<br>La Verdad
+        </h2>
+        <p class="font-moderat text-sm font-light opacity-70">
+          © 2025 ibblaverdad
+        </p>
+      </div>
+      <div class="flex-1 flex flex-col items-center md:items-end">
+        <div class="w-48 h-32 md:w-56 md:h-36 overflow-hidden rounded-[8px] mb-3 shadow-xl">
+          <img src="multimedia/iglesia.jpg" alt="Vista aérea de la iglesia" class="w-full h-full object-cover">
+        </div>
+        <p class="font-moderat text-sm font-light leading-relaxed text-right">
+          Av. 15 de Julio 4148<br>
+          Ucv 106 Zona G Lote 11<br>
+          Huaycán - Ate
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+      // --- Lógica del Dropdown con Timer (0.3s) ---
+      const dropdowns = document.querySelectorAll('.dropdown');
+      let hideTimer;
+
+      dropdowns.forEach(dropdown => {
+        if (window.matchMedia("(min-width: 769px)").matches) {
+          const trigger = dropdown.querySelector('span');
+          const content = dropdown.querySelector('.dropdown-content');
+
+          if (trigger && content) {
+            const showMenu = () => {
+              clearTimeout(hideTimer);
+              content.style.display = 'block';
+            };
+            
+            const startHideTimer = () => {
+              hideTimer = setTimeout(() => {
+                content.style.display = 'none';
+              }, 300);
+            };
+
+            trigger.addEventListener('mouseenter', showMenu);
+            trigger.addEventListener('mouseleave', startHideTimer);
+            content.addEventListener('mouseenter', showMenu);
+            content.addEventListener('mouseleave', startHideTimer);
+          }
+        }
+      });
+
+      
+      // --- Lógica del Carrusel de Propósito (Tarjetas) ---
+      // (Esta lógica no se modifica, ya que el bug estaba en el HTML)
+      const purposeSlider = document.getElementById('purposeSlider');
+      if (purposeSlider) {
+          const purposeSlides = Array.from(purposeSlider.querySelectorAll('.purpose-slide'));
+          const purposePrevBtn = document.getElementById('purposeSliderPrevBtn');
+          const purposeNextBtn = document.getElementById('purposeSliderNextBtn');
+          
+          const totalPurposeSlides = purposeSlides.length;
+          if (totalPurposeSlides > 1) {
+              let currentPurposeIndex = 1;
+              let isPurposeMoving = false;
+              const transitionDuration = 500;
+              
+              const firstClone = purposeSlides[0].cloneNode(true);
+              const lastClone = purposeSlides[totalPurposeSlides - 1].cloneNode(true);
+              purposeSlider.appendChild(firstClone);
+              purposeSlider.insertBefore(lastClone, purposeSlides[0]);
+              
+              const allPurposeSlides = purposeSlider.querySelectorAll('.purpose-slide');
+              const totalSlidesWithClones = allPurposeSlides.length;
+              
+              const setSliderWidths = () => {
+                const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+                const itemsVisible = isDesktop ? 4 : 1;
+                
+                // Ancho del track
+                const trackWidthPercent = (totalSlidesWithClones / itemsVisible) * 100; // 150% or 600%
+                purposeSlider.style.width = `${trackWidthPercent}%`;
+                
+                // Ancho de cada slide (relativo al track)
+                const slideWidthPercent = 100 / totalSlidesWithClones; // 16.66%
+                allPurposeSlides.forEach(slide => {
+                  slide.style.width = `${slideWidthPercent}%`; 
+                });
+              };
+              
+              setSliderWidths(); 
+              window.addEventListener('resize', setSliderWidths); 
+              
+              const updatePurposeSlider = (instant = false) => {
+                  purposeSlider.style.transition = instant ? 'none' : `transform ${transitionDuration}ms ease-in-out`;
+                  const movePercent = currentPurposeIndex * (100 / totalSlidesWithClones);
+                  purposeSlider.style.transform = `translateX(-${movePercent}%)`;
+              };
+              
+              const handlePurposeTransitionEnd = () => {
+                  if (currentPurposeIndex === 0) {
+                      currentPurposeIndex = totalPurposeSlides;
+                      updatePurposeSlider(true);
+                  } else if (currentPurposeIndex === totalSlidesWithClones - 1) {
+                      currentPurposeIndex = 1;
+                      updatePurposeSlider(true);
+                  }
+                  isPurposeMoving = false;
+              };
+              
+              const shiftPurposeSlide = (direction) => {
+                  if (isPurposeMoving) return;
+                  isPurposeMoving = true;
+                  currentPurposeIndex += direction;
+                  updatePurposeSlider();
+              };
+              
+              purposeSlider.addEventListener('transitionend', handlePurposeTransitionEnd);
+              
+              purposeNextBtn.addEventListener('click', () => shiftPurposeSlide(1));
+              purposePrevBtn.addEventListener('click', () => shiftPurposeSlide(-1));
+              
+              updatePurposeSlider(true);
+          }
+      }
+
+
+      // --- Lógica Original del Carrusel de Cursos ---
+      const courseSlider = document.getElementById('courseSlider');
+      if (courseSlider) {
+          const courseSlides = Array.from(courseSlider.querySelectorAll('.course-slide'));
+          const coursePrevBtn = document.getElementById('courseSliderPrevBtn');
+          const courseNextBtn = document.getElementById('courseSliderNextBtn');
+          const totalCourses = courseSlides.length;
+          if (totalCourses > 1) {
+              let currentCourseIndex = 1;
+              let isCourseMoving = false;
+              const transitionDuration = 500;
+              const firstClone = courseSlides[0].cloneNode(true);
+              const lastClone = courseSlides[totalCourses - 1].cloneNode(true);
+              courseSlider.appendChild(firstClone);
+              courseSlider.insertBefore(lastClone, courseSlides[0]);
+              const allCourseSlides = courseSlider.querySelectorAll('.course-slide');
+              const totalSlidesWithClones = allCourseSlides.length;
+              courseSlider.style.width = `${totalSlidesWithClones * 100}%`;
+              allCourseSlides.forEach(slide => {
+                  slide.style.width = `${100 / totalSlidesWithClones}%`;
+              });
+              const updateCourseSlider = (instant = false) => {
+                  courseSlider.style.transition = instant ? 'none' : `transform ${transitionDuration}ms ease-in-out`;
+                  courseSlider.style.transform = `translateX(-${currentCourseIndex * (100 / totalSlidesWithClones)}%)`;
+              };
+              const handleTransitionEnd = () => {
+                  if (currentCourseIndex === 0) {
+                      currentCourseIndex = totalCourses;
+                      updateCourseSlider(true);
+                  } else if (currentCourseIndex === totalSlidesWithClones - 1) {
+                      currentCourseIndex = 1;
+                      updatePurposeSlider(true);
+                  }
+                  isCourseMoving = false;
+              };
+              const shiftCourseSlide = (direction) => {
+                  if (isCourseMoving) return;
+                  isCourseMoving = true;
+                  currentCourseIndex += direction;
+                  updateCourseSlider();
+              };
+              courseSlider.addEventListener('transitionend', handleTransitionEnd);
+              courseNextBtn.addEventListener('click', () => shiftCourseSlide(1));
+              coursePrevBtn.addEventListener('click', () => shiftCourseSlide(-1));
+              updateCourseSlider(true);
+          }
+      }
+    });
+  </script>
+</body>
+</html>

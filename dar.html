@@ -21,7 +21,7 @@
       --extra-light-blue: #EDF5FF;
     }
     .navbar-custom {
-      background-color: rgba(237,245,255,0.6);
+      background-color: rgba(237,245,255,0.9);
       box-shadow: 0 0 20px 0 rgba(32,56,85,0.25);
       position: fixed;
       top: 12px;
@@ -57,7 +57,7 @@
       z-index: 1;
       top: 100%;
       left: 0;
-      margin-top: 0;
+      margin-top: 12px;
       padding: 10px 0;
     }
     .dropdown-content a {
@@ -96,7 +96,7 @@
       .whatsapp-button { width: 56px; height: 56px; }
     }
   </style>
-  <title>Dar | IBBV</title>
+  <title>Dar | ibblaverdad</title>
 </head>
 <body class="bg-[--extra-light-blue]">
   <header>
@@ -109,7 +109,7 @@
           <div class="dropdown">
             <span class="flex items-center shrink-0 cursor-pointer">
               Acerca de
-              <span class="iconify text-[#1D54C0] ml-1.5" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
+              <span class="iconify text-[#1D54C0]" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
             </span>
             <div class="dropdown-content">
               <a href="adn.html">Nuestro ADN</a>
@@ -126,9 +126,9 @@
     </nav>
   </header>
 
-  <section class="relative h-screen w-full flex items-center justify-center text-center text-white header-dar">
+  <section class="relative h-[500px] w-full flex items-center justify-center text-center text-white header-dar">
     <div class="relative z-10 px-4">
-      <h1 class="font-black text-5xl md:text-6xl uppercase leading-none">Dios ama<br>al dador alegre</h1>
+      <h1 class="font-black text-5xl md:text-6xl uppercase leading-none">DIOS AMA<br>AL DADOR<br>ALEGRE</h1>
       <p class="font-bold text-xl md:text-2xl uppercase mt-4">2 Corintios 9:7</p>
     </div>
   </section>
@@ -137,7 +137,7 @@
     <div class="max-w-5xl mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-4xl font-medium text-[--green] mb-4">Atrévete a vivir generosamente</h2>
       <p class="text-lg md:text-xl font-light text-[--light-blue]">
-        Traigan a mi templo sus diezmos, y échenlos en el cofre de las ofrendas; así no les faltará alimento. ¡Pónganme a prueba con esto! Verán que abriré las ventanas del cielo, y les enviaré abundantes lluvias.
+        Traigan a mi templo sus diezmos, y échenlos en el cofre de las ofrendas; así no les faltará alimento.<br> ¡Pónganme a prueba con esto! Verán que abriré las ventanas del cielo, y les enviaré abundantes lluvias.
         <span class="block font-medium mt-2">Malaquías 3:10 TLA</span>
       </p>
     </div>
@@ -150,7 +150,7 @@
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 mt-12">
         <div class="flex flex-col items-center">
-          <img src="multimedia/yape.svg" alt="Yape" class="h-24 mb-4">
+          <img src="multimedia/yape.png" alt="Yape" class="h-24 mb-4">
           <p class="text-2xl md:text-3xl font-medium text-[--dark-blue]">936 512 948</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-1">Yape</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-4 leading-tight">A nombre de<br>Marco A. De-La-Cruz C.</p>
@@ -158,18 +158,30 @@
         </div>
 
         <div class="flex flex-col items-center">
-          <img src="multimedia/bcp.svg" alt="BCP" class="h-24 mb-4">
+          <img src="multimedia/bcp.png" alt="BCP" class="h-24 mb-4">
           <p class="text-2xl md:text-3xl font-medium text-[--dark-blue]">19106840111002</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-1">Banco de Crédito del Perú</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-4 leading-tight">A nombre de<br>Marco Antonio De La Cruz Cáceres</p>
         </div>
 
         <div class="flex flex-col items-center">
-          <img src="multimedia/sobre.svg" alt="Sobre de ofrenda" class="h-24 mb-4">
+          <img src="multimedia/sobre.png" alt="Sobre de ofrenda" class="h-24 mb-4">
           <p class="text-2xl md:text-3xl font-medium text-[--dark-blue]">Efectivo</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-1">Sobre</p>
           <p class="text-lg md:text-xl text-[--dark-blue] mt-4 leading-tight">Durante nuestros<br>Servicios Presenciales</p>
         </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-16 md:mt-20">
+      <p class="text-xl md:text-2xl font-medium text-[--dark-blue] mb-8">Recuerda enviar tu captura, voucher o comprobante.</p>
+      <div class="flex flex-col sm:flex-row gap-6 justify-center">
+        <a href="https://wa.me/51936512948" class="btn-standard bg-[--dark-blue] text-[--green] hover:opacity-90 transition-opacity">
+          Enviar
+        </a>
+        <a href="index.html" class="btn-standard bg-[--blue] text-[--light-blue] hover:opacity-90 transition-opacity">
+          Volver a inicio
+        </a>
       </div>
     </div>
 
@@ -195,23 +207,11 @@
                 </button>
                 <div class="accordion-content">
                      <div class="pt-2 pb-6 text-lg text-[--dark-blue] pl-10">
-                        <p>Todo lo que hacemos es gracias a tu generosidad. Podemos hacer servicios cada domingo, servicios juveniles los sábados, reuniones para mujeres y mucho más. No solo dentro sino fuera de la iglesia en nuestras actividades de Servolución donde cada semana, a través de proyectos, muchas personas son alcanzadas.</p>
+                        <p>Todo lo que hacemos es gracias a tu generosidad. Podemos hacer servicios cada domingo, reuniones juveniles los sábados, reuniones para mujeres, hombres, parejas y mucho más. No solo dentro sino fuera de la iglesia en nuestras actividades de evangelismo y ayuda social, a través de estas, muchas personas son alcanzadas.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-
-    <div class="text-center mt-16 md:mt-20">
-      <p class="text-xl md:text-2xl font-medium text-[--dark-blue] mb-8">Recuerda enviar tu captura, voucher o comprobante.</p>
-      <div class="flex flex-col sm:flex-row gap-6 justify-center">
-        <a href="https://wa.me/51936512948" class="btn-standard bg-[--dark-blue] text-[--green] hover:opacity-90 transition-opacity">
-          Enviar
-        </a>
-        <a href="index.html" class="btn-standard bg-[--blue] text-[--light-blue] hover:opacity-90 transition-opacity">
-          Volver a inicio
-        </a>
-      </div>
     </div>
   </main>
 
@@ -244,14 +244,42 @@
 
   <div id="qrModal" class="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50 hidden p-4">
     <div class="bg-white p-4 rounded-lg shadow-xl relative">
-      <img src="multimedia/yape-qr.svg" alt="Código QR de Yape" class="w-64 h-64 md:w-80 md:h-80">
+      <button id="closeQrModal" class="absolute top-2 right-2 text-gray-600 hover:text-gray-900">
+        <img src="multimedia/x-close.svg" alt="Cerrar" class="w-6 h-6">
+      </button>
+      <img src="multimedia/yape-qr.png" alt="Código QR de Yape" class="w-64 h-64 md:w-80 md:h-80">
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
+      const dropdowns = document.querySelectorAll('.dropdown');
+      let hideTimer;
+      dropdowns.forEach(dropdown => {
+        if (window.matchMedia("(min-width: 1024px)").matches) {
+          const trigger = dropdown.querySelector('span');
+          const content = dropdown.querySelector('.dropdown-content');
+          if (trigger && content) {
+            const showMenu = () => {
+              clearTimeout(hideTimer);
+              content.style.display = 'block';
+            };
+            const startHideTimer = () => {
+              hideTimer = setTimeout(() => {
+                content.style.display = 'none';
+              }, 300);
+            };
+            trigger.addEventListener('mouseenter', showMenu);
+            trigger.addEventListener('mouseleave', startHideTimer);
+            content.addEventListener('mouseenter', showMenu);
+            content.addEventListener('mouseleave', startHideTimer);
+          }
+        }
+      });
+
       const modal = document.getElementById('qrModal');
       const openBtn = document.getElementById('openQrModal');
+      const closeBtn = document.getElementById('closeQrModal');
       
       if (openBtn && modal) {
         openBtn.addEventListener('click', () => {
@@ -263,6 +291,12 @@
             modal.classList.add('hidden');
           }
         });
+
+        if (closeBtn) {
+          closeBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+          });
+        }
       }
 
       const accordionItems = document.querySelectorAll('.accordion-item');

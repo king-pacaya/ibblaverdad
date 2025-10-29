@@ -16,20 +16,24 @@
     *{font-family: 'Moderat', sans-serif;font-weight: 400;font-style: normal;}
     :root {--green: #83DC5A;--dark-blue: #203855;--blue: #1D54C0;--light-blue: #A0C3EA;--extra-light-blue: #EDF5FF;--arrow-bg: #A5B0C4;}
     .hero-overlay {background: linear-gradient(180deg, rgba(32,56,85,0.4) 0%, rgba(0,0,0,0.5) 100%);}
-    .navbar-custom {background-color: rgba(237,245,255,0.80);box-shadow: 0 0 20px 0 rgba(32,56,85,0.25);position: fixed;top: 12px;left: 50%;transform: translateX(-50%);width: 100%;max-width: 896px;z-index: 1000; transition: transform 0.3s ease-in-out;}
+    /* MODIFICACIÓN 2: Se aumentó la opacidad de 0.6 a 0.65 */
+    .navbar-custom {background-color: rgba(237,245,255,0.65);box-shadow: 0 0 20px 0 rgba(32,56,85,0.25);position: fixed;top: 12px;left: 50%;transform: translateX(-50%);width: 100%;max-width: 896px;z-index: 1000; transition: transform 0.3s ease-in-out;}
     .navbar-hidden { transform: translateX(-50%) translateY(-150%); }
-    .hero-bg-position {background-image: url('multimedia/landing-header.jpg');background-size: cover;background-position: 70% 70%;background-repeat: no-repeat;}
+    /* MODIFICACIÓN 5b: Se cambió background-position de '70% center' a '70% 40%' para subir la imagen */
+    .hero-bg-position {background-image: url('multimedia/landing-header.jpg');background-size: cover;background-position: 70% 40%;background-repeat: no-repeat;}
     .card-base {width: clamp(150px, 15vw, 210px);height: clamp(200px, 25vw, 280px);border-radius: 10px;box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);display: flex;align-items: center;justify-content: center;flex-shrink: 0;text-align: center;text-transform: uppercase;color: white;padding: 20px;transition: all 0.5s ease;}
     .card-text {display: flex;flex-direction: column;align-items: center;justify-content: center;line-height: 96%;font-size: clamp(16px, 2vw, 20px);}
     .card-text b {font-weight: 900;margin-bottom: 4px;}
     .card-text span {font-weight: 500;}
-    /* MODIFICACIÓN: Se usa el card-main de old.html (con margin) */
     .card-main {width: clamp(150px, 15vw, 210px);height: clamp(200px, 25vw, 280px);margin: 0 4px;box-shadow: 0 0 20px 0 rgba(0,0,0,0.25);z-index: 1;}
+    /* MODIFICACIÓN 4: Se eliminaron .cards-container, .card-wrapper, .card-wrapper.active, .cards-section-wrapper */
     .btn-standard {height: 40px;padding: 0 20px;border-radius: 20px;font-weight: 700;font-size: 14px;text-transform: uppercase;display: inline-flex;align-items: center;justify-content: center;}
     .dropdown {position: relative;display: inline-block;}
-    .dropdown-content {display: none;position: absolute;background-color: rgba(237,245,255,0.9);backdrop-filter: blur(10px);min-width: 180px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);border-radius: 10px;z-index: 1;top: 100%;left: 0;margin-top: 12px;padding: 10px 0;}
+    /* MODIFICACIÓN 1: Se añadió margin-top: 8px para que el dropdown aparezca ligeramente debajo */
+    .dropdown-content {display: none;position: absolute;background-color: rgba(237,245,255,0.9);backdrop-filter: blur(10px);min-width: 180px;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);border-radius: 10px;z-index: 1;top: 100%;left: 0;margin-top: 8px;padding: 10px 0;}
     .dropdown-content a {color: var(--dark-blue);padding: 12px 16px;text-decoration: none;display: block;font-size: 14px;transition: background-color 0.3s;}
     .dropdown-content a:hover {background-color: rgba(32,56,85,0.1);}
+    .dropdown:hover .dropdown-content {display: block;}
     .course-slider-container {width: 100%; position: relative; overflow: hidden;}
     .course-slides-wrapper {display: flex; transition: transform 0.5s ease-in-out; height: 100%;}
     .course-slide {width: 100%; flex-shrink: 0; display: flex; height: 100%; align-items: stretch;}
@@ -37,16 +41,7 @@
     .course-image-container {width: 50%; flex-shrink: 0; border-radius: 0 45px 45px 0;}
     .course-image-container img {width: 100%; height: 100%; object-fit: cover; border-radius: 0 45px 45px 0;}
     .course-info-container {width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; padding: 2rem 3rem;}
-    
-    /* MODIFICACIÓN: Botones del slider de cursos movidos a la izquierda */
-    .course-slider-nav-buttons {
-      position: absolute; 
-      bottom: 2rem; 
-      left: 4rem; /* Posiciona en la parte izquierda */
-      display: flex; 
-      z-index: 20;
-    }
-
+    .course-slider-nav-buttons {position: absolute; bottom: 2rem; left: 0; right: 0; display: flex; justify-content: center; z-index: 20;}
     @media (max-width: 768px) {
       .hero-section-content {justify-content: flex-end !important;align-items: center;padding-bottom: 20px;height: 100%;}
       .hero-section-content h1 {font-size: 1.8rem;margin-bottom: 0.75rem;}
@@ -83,20 +78,10 @@
         order: 3;
         margin-bottom: 1rem;
       }
-
-      /* MODIFICACIÓN: Botones de slider en mobile vuelven al centro */
-      .course-slider-nav-buttons {
-        position: relative; 
-        bottom: auto; 
-        left: 0; /* Resetea left */
-        right: 0; /* Añade right */
-        display: flex; 
-        justify-content: center; /* Centra en mobile */
-        margin-top: 1rem;
-      }
-
-      /* Se mantiene el ajuste para el slider mobile */
-      .card-base {width: 260px;height: 340px;margin: 10px 0;}
+      .course-slider-nav-buttons {position: relative; bottom: auto; margin-top: 1rem;}
+      /* MODIFICACIÓN 4: Se eliminaron estilos de .cards-container, .cards-section-wrapper, .card-wrapper y .card-wrapper.active */
+      .card-base {width: 260px;height: 340px;margin: 10px;} /* Se cambió margin a 10px para el wrap */
+      .cards-section-wrapper + .flex {margin-top: 1.5rem;}
       .card-text {font-size: 1.5rem;}
       .navbar-custom {max-width: 95%;}
       .hero-bg-position {background-position: 60% center;}
@@ -107,7 +92,7 @@
       .whatsapp-button {width: 56px;height: 56px;}
     }
   </style>
-  <title>La Verdad Huaycán</title>
+  <title>Iglesia Bíblica Bautista La verdad | IBBV</title>
 </head>
 <body class="bg-gray-100">
   <section class="relative w-full h-screen overflow-hidden">
@@ -123,7 +108,7 @@
             <div class="dropdown">
               <span class="flex items-center shrink-0 cursor-pointer">
                 Acerca de
-                <span class="iconify text-[#1D54C0]" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
+                <span class="iconify text-[#1D54C0] ml-1.5" data-icon="ic:baseline-arrow-drop-down" data-width="28" data-height="28"></span>
               </span>
               <div class="dropdown-content">
                 <a href="adn.html">Nuestro ADN</a>
@@ -131,13 +116,13 @@
               </div>
             </div>
             <a href="ministerios.html" class="shrink-0">Ministerios</a>
-            <a href="httpsa://tr.ee/8FKjw5gHMi" class="shrink-0">Oración</a>
+            <a href="https://tr.ee/8FKjw5gHMi" class="shrink-0">Oración</a>
           </div>
           <a href="dar.html" class="bg-[#1D54C0] text-[#A0C3EA] rounded-full font-normal w-20 h-10 text-base flex items-center justify-center shrink-0">
             Dar
           </a>
         </div>
-        </nav>
+      </nav>
     </header>
     <div class="relative z-0 h-full flex items-center justify-center text-center text-[#EDF5FF] px-4 pt-24 hero-section-content flex-col">
       <div class="flex flex-col items-center justify-center w-full max-w-4xl">
@@ -165,7 +150,7 @@
     </a>
   </section>
   <section class="w-full min-h-[50vh] bg-[#203855] flex items-center justify-center py-12">
-    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-center gap-32">
+    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-center gap-8">
       <div class="text-center md:text-left max-w-sm">
         <h2 class="font-moderat text-3xl md:text-4xl leading-tight font-medium text-[#83DC5A]">
           <span style="color: var(--light-blue);">Él trasforma,</span><br>nosotros servimos.
@@ -178,72 +163,28 @@
       </div>
     </div>
   </section>
-  
   <section class="w-full min-h-[50vh] bg-[#EDF5FF] flex flex-col items-center justify-center py-12">
-    <div class="flex flex-col items-center mb-8 px-4">
+    <div class="flex flex-col items-center mb-8">
       <h3 class="text-center font-moderat text-2xl md:text-3xl font-bold leading-none mb-6 text-[#203855]">
         Estás aquí para
       </h3>
     </div>
-    
-    <div class="w-full max-w-6xl px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#203855]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">CONOCER</b>
-            <span class="text-2xl" style="font-weight: 500;">A DIOS</span>
-          </div>
-          <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Pues la gracia de Dios ya ha sido revelada, la cual trae salvación a todas las personas.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">TITO 2:11</b>
-          </div>
+    <div class="w-full mb-8">
+      <div class="cards-container flex flex-row flex-wrap justify-center items-center gap-4 px-4">
+        <div class="card-base card-main" style="background-color: #203855;">
+          <div class="card-text"><b>CONOCER</b><span>A DIOS</span></div>
         </div>
-
-        <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#83DC5A]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">ENCONTRAR</b>
-            <span class="text-2xl" style="font-weight: 500;">LIBERTAD</span>
-          </div>
-          <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Jesús le dijo a la gente que creyó en él: Ustedes son verdaderamente mis discípulos si se mantienen fieles a mis enseñanzas; 32 y conocerán la verdad, y la verdad los hará libres.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">JUAN 8:31, 32.</b>
-          </div>
+        <div class="card-base card-main" style="background-color: #83DC5A;">
+          <div class="card-text"><b>ENCONTRAR</b><span>LIBERTAD</span></div>
         </div>
-
-        <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#1D54C0]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">DESCUBRIR</b>
-            <span class="text-2xl" style="font-weight: 500;">PROPÓSITO</span>
-          </div>
-          <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Como no podían llevarlo hasta Jesús debido a la multitud, abrieron un agujero en el techo, encima de donde estaba Jesús. Luego bajaron al hombre en la camilla, justo delante de Jesús.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">MARCOS 2:4</b>
-          </div>
+        <div class="card-base card-main" style="background-color: #1D54C0;">
+          <div class="card-text"><b>DESCUBRIR</b><span>PROPÓSITO</span></div>
         </div>
-
-        <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#A0C3EA]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">SER</b>
-            <span class="text-2xl" style="font-weight: 500;">DIFERENTE</span>
-          </div>
-          <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              El amor que tengan unos por otros será la prueba ante el mundo de que son mis discípulos.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">JUAN 13:35</b>
-          </div>
+        <div class="card-base card-main" style="background-color: #A0C3EA;">
+          <div class="card-text"><b>SER</b><span>DIFERENTE</span></div>
         </div>
-
       </div>
     </div>
-    
     <p class="font-moderat text-base md:text-lg font-light leading-relaxed text-center text-[#203855] mt-8 max-w-3xl px-4">
       Pues yo sé los planes que tengo para ustedes, dice el Señor. Son planes para lo bueno y no para lo malo, para darles un futuro y una esperanza.<br>
       <span class="font-bold">Jeremías 29:11 NTV</span>
@@ -320,20 +261,19 @@
         </div>
       </div>
       <div class="flex-1 flex flex-col items-center justify-center text-center text-white my-4 md:my-0 md:px-4 h-full">
-        <div class="max-w-md"> <h3 class="font-moderat text-xl md:text-2xl font-medium leading-none mb-3">Todos son bienvenidos a la familia de La Verdad</h3>
-          <p class="font-moderat text-base md:text-lg font-light leading-snug mb-5">
-            Este libro es un pequeño regalo de parte de nuestros líderes, te ayudará a entender más acerca de la salvación.
-          </p>
-          <a href="#" class="btn-standard bg-[#A0C3EA] text-[#1D54C0]">
-            Descargar
-          </a>
-        </div>
+        <h3 class="font-moderat text-xl md:text-2xl font-medium leading-none mb-3">Todos son bienvenidos a la familia de La Verdad</h3>
+        <p class="font-moderat text-base md:text-lg font-light leading-snug mb-5">
+          Este libro es un pequeño regalo de parte de nuestros líderes, te ayudará a entender más acerca de la salvación.
+        </p>
+        <a href="#" class="btn-standard bg-[#A0C3EA] text-[#1D54C0]">
+          Descargar
+        </a>
       </div>
     </div>
   </section>
   <section class="w-full min-h-[50vh] bg-[#EDF5FF] py-12 md:py-20 flex items-center justify-center">
-    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-      <div class="flex flex-col items-center text-center md:w-1/2">
+    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12">
+      <div class="flex flex-col items-center text-center md:w-1/2 md:pr-4">
         <h2 class="font-moderat font-medium text-2xl md:text-3xl leading-none mb-4 text-[#203855]">
           Jorge y Graciela
         </h2>
@@ -344,7 +284,7 @@
           Ver Equipo Ministerial
         </a>
       </div>
-      <div class="md:w-1/2 flex justify-center">
+      <div class="md:w-1/2 flex justify-center md:justify-start">
         <div class="w-64 h-64 md:w-80 md:h-80 overflow-hidden rounded-[20px] shadow-2xl">
           <img src="multimedia/pastores.jpg" alt="Pastores Jorge y Graciela" class="w-full h-full object-cover">
         </div>
@@ -414,42 +354,9 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-
-      // --- Lógica del Dropdown con Timer (0.3s) ---
-      const dropdowns = document.querySelectorAll('.dropdown');
-      let hideTimer;
-
-      dropdowns.forEach(dropdown => {
-        if (window.matchMedia("(min-width: 769px)").matches) {
-          const trigger = dropdown.querySelector('span');
-          const content = dropdown.querySelector('.dropdown-content');
-
-          if (trigger && content) {
-            const showMenu = () => {
-              clearTimeout(hideTimer);
-              content.style.display = 'block';
-            };
-            
-            const startHideTimer = () => {
-              hideTimer = setTimeout(() => {
-                content.style.display = 'none';
-              }, 300);
-            };
-
-            trigger.addEventListener('mouseenter', showMenu);
-            trigger.addEventListener('mouseleave', startHideTimer);
-            content.addEventListener('mouseenter', showMenu);
-            content.addEventListener('mouseleave', startHideTimer);
-          }
-        }
-      });
-
       
-      // --- Lógica del Carrusel de Propósito (ELIMINADA) ---
-      // La sección ahora es una cuadrícula estática, no se necesita JS.
+      /* MODIFICACIÓN 4: Se eliminó todo el bloque de JavaScript del carrusel de tarjetas (cardsContainer) */
 
-      
-      // --- Lógica Original del Carrusel de Cursos ---
       const courseSlider = document.getElementById('courseSlider');
       if (courseSlider) {
           const courseSlides = Array.from(courseSlider.querySelectorAll('.course-slide'));
@@ -480,8 +387,7 @@
                       updateCourseSlider(true);
                   } else if (currentCourseIndex === totalSlidesWithClones - 1) {
                       currentCourseIndex = 1;
-                      // Corregido: updateCourseSlider(true) en lugar de updatePurposeSlider(true)
-                      updateCourseSlider(true); 
+                      updateCourseSlider(true);
                   }
                   isCourseMoving = false;
               };
