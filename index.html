@@ -8,7 +8,8 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
   <style>
-    @font-face {font-family: 'Moderat';src: url('font/Moderat-Bold.ttf') format('truetype');font-weight: 700;font-style: normal;}
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Black.ttf') format('truetype');font-weight: 900;font-style: normal;}
+    @font-face {font-family: 'Moderat';src: url('font/Moderat-Bold.ttf') format('truetype');font-weight: 700; font-style: normal;}
     @font-face {font-family: 'Moderat';src: url('font/Moderat-Medium.ttf') format('truetype');font-weight: 500;font-style: normal;}
     @font-face {font-family: 'Moderat';src: url('font/Moderat-Regular.ttf') format('truetype');font-weight: 400;font-style: normal;}
     @font-face {font-family: 'Moderat';src: url('font/Moderat-Light.ttf') format('truetype');font-weight: 300;font-style: normal;}
@@ -38,11 +39,12 @@
     .course-image-container img {width: 100%; height: 100%; object-fit: cover; border-radius: 0 45px 45px 0;}
     .course-info-container {width: 50%; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; text-align: left; padding: 2rem 3rem;}
     
-    /* MODIFICACIÓN: Botones del slider de cursos movidos a la izquierda */
+    /* MODIFICACIÓN: Botones del slider de cursos en la mitad izquierda (desktop) */
     .course-slider-nav-buttons {
       position: absolute; 
       bottom: 2rem; 
-      left: 4rem; /* Posiciona en la parte izquierda */
+      right: 50%; /* Lo alinea a la derecha de la mitad izquierda */
+      margin-right: 2rem; /* Le da un margen desde el centro */
       display: flex; 
       z-index: 20;
     }
@@ -165,7 +167,7 @@
     </a>
   </section>
   <section class="w-full min-h-[50vh] bg-[#203855] flex items-center justify-center py-12">
-    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-center gap-32">
+    <div class="max-w-6xl w-full px-4 md:px-8 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-32">
       <div class="text-center md:text-left max-w-sm">
         <h2 class="font-moderat text-3xl md:text-4xl leading-tight font-medium text-[#83DC5A]">
           <span style="color: var(--light-blue);">Él trasforma,</span><br>nosotros servimos.
@@ -186,61 +188,183 @@
       </h3>
     </div>
     
-    <div class="w-full max-w-6xl px-4">
+    <div class="w-full max-w-5xl px-4 hidden md:block">
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         
         <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#203855]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">CONOCER</b>
-            <span class="text-2xl" style="font-weight: 500;">A DIOS</span>
+          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+            <b class="text-2xl font-black">CONOCER</b>
+            <span class="text-2xl font-medium">A DIOS</span>
           </div>
           <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Pues la gracia de Dios ya ha sido revelada, la cual trae salvación a todas las personas.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">TITO 2:11</b>
+            <div class="w-full max-w-[185px]">
+              <div class="mb-4">
+                <b class="block text-2xl font-black text-left leading-none">CONOCER</b>
+                <span class="block text-2xl font-medium text-left leading-none">A DIOS</span>
+              </div>
+              <p class="text-sm font-light text-justify mb-2 leading-tight">
+                Pues la gracia de Dios ya ha sido revelada, la cual trae salvación a todas las personas.
+              </p>
+              <b class="block text-sm uppercase font-black text-left">TITO 2:11</b>
+            </div>
           </div>
         </div>
 
         <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#83DC5A]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">ENCONTRAR</b>
-            <span class="text-2xl" style="font-weight: 500;">LIBERTAD</span>
+          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+            <b class="text-2xl font-black">ENCONTRAR</b>
+            <span class="text-2xl font-medium">LIBERTAD</span>
           </div>
           <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Jesús le dijo a la gente que creyó en él: Ustedes son verdaderamente mis discípulos si se mantienen fieles a mis enseñanzas; 32 y conocerán la verdad, y la verdad los hará libres.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">JUAN 8:31, 32.</b>
+            <div class="w-full max-w-[185px]">
+              <div class="mb-4">
+                <b class="block text-2xl font-black text-left leading-none">ENCONTRAR</b>
+                <span class="block text-2xl font-medium text-left leading-none">LIBERTAD</span>
+              </div>
+              <p class="text-sm font-light text-justify mb-2 leading-tight">
+                Jesús le dijo a la gente que creyó en él: Ustedes son verdaderamente mis discípulos si se mantienen fieles a mis enseñanzas; 32 y conocerán la verdad, y la verdad los hará libres.
+              </p>
+              <b class="block text-sm uppercase font-black text-left">JUAN 8:31, 32.</b>
+            </div>
           </div>
         </div>
 
         <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#1D54C0]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">DESCUBRIR</b>
-            <span class="text-2xl" style="font-weight: 500;">PROPÓSITO</span>
+          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+            <b class="text-2xl font-black">DESCUBRIR</b>
+            <span class="text-2xl font-medium">PROPÓSITO</span>
           </div>
           <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              Como no podían llevarlo hasta Jesús debido a la multitud, abrieron un agujero en el techo, encima de donde estaba Jesús. Luego bajaron al hombre en la camilla, justo delante de Jesús.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">MARCOS 2:4</b>
+            <div class="w-full max-w-[185px]">
+              <div class="mb-4">
+                <b class="block text-2xl font-black text-left leading-none">DESCUBRIR</b>
+                <span class="block text-2xl font-medium text-left leading-none">PROPÓSITO</span>
+              </div>
+              <p class="text-sm font-light text-justify mb-2 leading-tight">
+                Como no podían llevarlo hasta Jesús debido a la multitud, abrieron un agujero en el techo, encima de donde estaba Jesús. Luego bajaron al hombre en la camilla, justo delante de Jesús.
+              </p>
+              <b class="block text-sm uppercase font-black text-left">MARCOS 2:4</b>
+            </div>
           </div>
         </div>
 
         <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 min-h-[300px] flex items-center justify-center p-6 text-center bg-[#A0C3EA]">
-          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden">
-            <b class="text-2xl" style="font-weight: 900; margin-bottom: 4px;">SER</b>
-            <span class="text-2xl" style="font-weight: 500;">DIFERENTE</span>
+          <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+            <b class="text-2xl font-black">SER</b>
+            <span class="text-2xl font-medium">DIFERENTE</span>
           </div>
           <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            <p class="text-sm font-light text-justify mb-4" style="line-height: 120%;">
-              El amor que tengan unos por otros será la prueba ante el mundo de que son mis discípulos.
-            </p>
-            <b class="text-sm uppercase" style="font-weight: 900;">JUAN 13:35</b>
+            <div class="w-full max-w-[185px]">
+              <div class="mb-4">
+                <b class="block text-2xl font-black text-left leading-none">SER</b>
+                <span class="block text-2xl font-medium text-left leading-none">DIFERENTE</span>
+              </div>
+              <p class="text-sm font-light text-justify mb-2 leading-tight">
+                El amor que tengan unos por otros será la prueba ante el mundo de que son mis discípulos.
+              </p>
+              <b class="block text-sm uppercase font-black text-left">JUAN 13:35</b>
+            </div>
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <div id="purposeSliderContainer" class="md:hidden w-full relative overflow-hidden px-4">
+      <div id="purposeSlider" class="purpose-slides-wrapper flex">
+        
+        <div class="purpose-slide flex-shrink-0 w-full flex justify-center p-2">
+          <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 w-full max-w-xs h-[450px] flex items-center justify-center p-6 text-center bg-[#203855]">
+            <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+              <b class="text-2xl font-black">CONOCER</b>
+              <span class="text-2xl font-medium">A DIOS</span>
+            </div>
+            <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div class="w-full max-w-[185px]">
+                <div class="mb-4">
+                  <b class="block text-2xl font-black text-left leading-none">CONOCER</b>
+                  <span class="block text-2xl font-medium text-left leading-none">A DIOS</span>
+                </div>
+                <p class="text-sm font-light text-justify mb-2 leading-tight">
+                  Pues la gracia de Dios ya ha sido revelada, la cual trae salvación a todas las personas.
+                </p>
+                <b class="block text-sm uppercase font-black text-left">TITO 2:11</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="purpose-slide flex-shrink-0 w-full flex justify-center p-2">
+          <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 w-full max-w-xs h-[450px] flex items-center justify-center p-6 text-center bg-[#83DC5A]">
+            <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+              <b class="text-2xl font-black">ENCONTRAR</b>
+              <span class="text-2xl font-medium">LIBERTAD</span>
+            </div>
+            <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div class="w-full max-w-[185px]">
+                <div class="mb-4">
+                  <b class="block text-2xl font-black text-left leading-none">ENCONTRAR</b>
+                  <span class="block text-2xl font-medium text-left leading-none">LIBERTAD</span>
+                </div>
+                <p class="text-sm font-light text-justify mb-2 leading-tight">
+                  Jesús le dijo a la gente que creyó en él: Ustedes son verdaderamente mis discípulos si se mantienen fieles a mis enseñanzas; 32 y conocerán la verdad, y la verdad los hará libres.
+                </p>
+                <b class="block text-sm uppercase font-black text-left">JUAN 8:31, 32.</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="purpose-slide flex-shrink-0 w-full flex justify-center p-2">
+          <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 w-full max-w-xs h-[450px] flex items-center justify-center p-6 text-center bg-[#1D54C0]">
+            <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+              <b class="text-2xl font-black">DESCUBRIR</b>
+              <span class="text-2xl font-medium">PROPÓSITO</span>
+            </div>
+            <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div class="w-full max-w-[185px]">
+                <div class="mb-4">
+                  <b class="block text-2xl font-black text-left leading-none">DESCUBRIR</b>
+                  <span class="block text-2xl font-medium text-left leading-none">PROPÓSITO</span>
+                </div>
+                <p class="text-sm font-light text-justify mb-2 leading-tight">
+                  Como no podían llevarlo hasta Jesús debido a la multitud, abrieron un agujero en el techo, encima de donde estaba Jesús. Luego bajaron al hombre en la camilla, justo delante de Jesús.
+                </p>
+                <b class="block text-sm uppercase font-black text-left">MARCOS 2:4</b>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="purpose-slide flex-shrink-0 w-full flex justify-center p-2">
+          <div class="group relative rounded-lg shadow-lg text-white overflow-hidden transition-all duration-300 w-full max-w-xs h-[450px] flex items-center justify-center p-6 text-center bg-[#A0C3EA]">
+            <div class="flex flex-col items-center justify-center transition-opacity duration-300 group-hover:opacity-0 group-hover:hidden leading-none">
+              <b class="text-2xl font-black">SER</b>
+              <span class="text-2xl font-medium">DIFERENTE</span>
+            </div>
+            <div class="absolute inset-0 p-5 flex flex-col justify-center items-center opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <div class="w-full max-w-[185px]">
+                <div class="mb-4">
+                  <b class="block text-2xl font-black text-left leading-none">SER</b>
+                  <span class="block text-2xl font-medium text-left leading-none">DIFERENTE</span>
+                </div>
+                <p class="text-sm font-light text-justify mb-2 leading-tight">
+                  El amor que tengan unos por otros será la prueba ante el mundo de que son mis discípulos.
+                </p>
+                <b class="block text-sm uppercase font-black text-left">JUAN 13:35</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="purpose-slider-nav-buttons w-full flex justify-center space-x-3 mt-6">
+        <div id="purposeSliderPrevBtn" class="p-2.5 rounded-full shadow-md cursor-pointer" style="background-color:var(--arrow-bg);">
+          <span class="iconify text-white" data-icon="bxs:left-arrow" data-width="16" data-height="16"></span>
+        </div>
+        <div id="purposeSliderNextBtn" class="p-2.5 rounded-full shadow-md cursor-pointer" style="background-color:var(--arrow-bg);">
+          <span class="iconify text-white" data-icon="bxs:right-arrow" data-width="16" data-height="16"></span>
+        </div>
       </div>
     </div>
     
@@ -299,7 +423,7 @@
         </div>
       </div>
     </div>
-    <div class="course-slider-nav-buttons px-4">
+    <div class="course-slider-nav-buttons">
       <div class="flex space-x-3">
         <div id="courseSliderPrevBtn" class="p-2.5 rounded-full shadow-md cursor-pointer" style="background-color:var(--arrow-bg);">
           <span class="iconify text-white" data-icon="bxs:left-arrow" data-width="16" data-height="16"></span>
@@ -445,8 +569,71 @@
       });
 
       
-      // --- Lógica del Carrusel de Propósito (ELIMINADA) ---
-      // La sección ahora es una cuadrícula estática, no se necesita JS.
+      // --- MODIFICACIÓN: Lógica del Carrusel de Propósito (AHORA PARA MOBILE) ---
+      const purposeSliderContainer = document.getElementById('purposeSliderContainer');
+      // Solo ejecutar el JS del slider si estamos en mobile (donde el slider es visible)
+      if (purposeSliderContainer && window.matchMedia("(max-width: 768px)").matches) {
+          const purposeSlider = document.getElementById('purposeSlider');
+          const purposeSlides = Array.from(purposeSlider.querySelectorAll('.purpose-slide'));
+          const purposePrevBtn = document.getElementById('purposeSliderPrevBtn');
+          const purposeNextBtn = document.getElementById('purposeSliderNextBtn');
+          const totalPurposes = purposeSlides.length;
+
+          if (totalPurposes > 1) {
+              let currentPurposeIndex = 1;
+              let isPurposeMoving = false;
+              const transitionDuration = 500; // Misma duración
+
+              // Clonar primero y último
+              const firstClone = purposeSlides[0].cloneNode(true);
+              const lastClone = purposeSlides[totalPurposes - 1].cloneNode(true);
+              purposeSlider.appendChild(firstClone);
+              purposeSlider.insertBefore(lastClone, purposeSlides[0]);
+
+              const allPurposeSlides = purposeSlider.querySelectorAll('.purpose-slide');
+              const totalSlidesWithClones = allPurposeSlides.length;
+
+              // Ajustar anchos
+              purposeSlider.style.width = `${totalSlidesWithClones * 100}%`;
+              allPurposeSlides.forEach(slide => {
+                  slide.style.width = `${100 / totalSlidesWithClones}%`;
+              });
+
+              // Función de actualización
+              const updatePurposeSlider = (instant = false) => {
+                  purposeSlider.style.transition = instant ? 'none' : `transform ${transitionDuration}ms ease-in-out`;
+                  purposeSlider.style.transform = `translateX(-${currentPurposeIndex * (100 / totalSlidesWithClones)}%)`;
+              };
+
+              // Handler para el loop infinito
+              const handlePurposeTransitionEnd = () => {
+                  if (currentPurposeIndex === 0) {
+                      currentPurposeIndex = totalPurposes;
+                      updatePurposeSlider(true);
+                  } else if (currentPurposeIndex === totalSlidesWithClones - 1) {
+                      currentPurposeIndex = 1;
+                      updatePurposeSlider(true);
+                  }
+                  isPurposeMoving = false;
+              };
+
+              // Función para mover slides
+              const shiftPurposeSlide = (direction) => {
+                  if (isPurposeMoving) return;
+                  isPurposeMoving = true;
+                  currentPurposeIndex += direction;
+                  updatePurposeSlider();
+              };
+
+              // Event listeners
+              purposeSlider.addEventListener('transitionend', handlePurposeTransitionEnd);
+              purposeNextBtn.addEventListener('click', () => shiftPurposeSlide(1));
+              purposePrevBtn.addEventListener('click', () => shiftPurposeSlide(-1));
+
+              // Posición inicial
+              updatePurposeSlider(true);
+          }
+      }
 
       
       // --- Lógica Original del Carrusel de Cursos ---
